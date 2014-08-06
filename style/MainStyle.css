@@ -1,3 +1,8 @@
+html {
+	background: #333;
+	color: #aaa;
+}
+
 nav, nav ul, nav ul li, nav ul li a {
 	display: block;
 	position: relative;
@@ -20,6 +25,7 @@ nav ul li a {
 	padding: 1em 0;
 	text-decoration: none;
 	position: relative;
+	color: #aaa;
 }
 
 nav ul li a .icon {
