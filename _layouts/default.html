@@ -1,0 +1,46 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ramsesoriginal</title>
+	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/mainstyle.css">
+	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/syntax.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Lobster|Oswald:400,700|Open+Sans+Condensed:300,300italic|Open+Sans:300italic,400italic,600italic,700italic,800italic,300,700,800,400,600' rel='stylesheet' type='text/css'>
+	<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/rss.xml">
+</head>
+<body>
+
+	<header id="header" class="">
+		<hgroup>
+			<h1>ramsesoriginal</h1>
+			<h2>sometimes even funny</h2>
+		</hgroup>
+		<nav>
+			<h1>Find your way around here</h1>
+			<ul>
+				<li>
+					<a href="/">{% icon fa-home %}<span class="tooltip">Home</span></a>
+				</li>
+				<li>
+					<a href="/blog/">{% icon fa-newspaper-o %}<span class="tooltip">Blog</span></a>
+				</li>
+				<li>
+					<a href="/projects/">{% icon fa-rocket %}<span class="tooltip">Projects</span></a>
+				</li>
+				<li>
+					<a href="/about/">{% icon fa-user %}<span class="tooltip">About</span></a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<main>
+		{{ content }}
+	</main>
+	<footer id="footer">
+		{% include footer.html %}
+	</footer>
+</body>
+</html>

@@ -1,0 +1,42 @@
+---
+title: Hello World!
+permalink: hello-world
+categories: 
+  - meta
+tags:
+  - hello world
+  - service message
+---
+
+<p>This post should be published at {{ page.date | date_to_string }}.</p>
+<p>If not, whatever!</p>
+
+This is a test
+
+does this get wrapped?
+
+<img src="{{ site.url }}/assets/images/hover-husky.gif" />
+
+ok, under the image!
+
+{% highlight ruby %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
+
+try again and again
+
+was this highlighted?
+
+Test some stuff.
+
+here we have the tags: {{ page.tags | array_to_sentence_string }}
+
+{{ page.content | number_of_words }}
+test
+

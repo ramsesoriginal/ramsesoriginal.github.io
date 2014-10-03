@@ -1,0 +1,20 @@
+timezone: "Europe/Berlin"
+
+paginate: 5
+
+paginate_path: "blog/:num"
+
+name: ramsesoriginal
+
+rssbaseurl: http://ramsesoriginal.github.io/
+
+date_format: "%d. %m. %Y"
+time_format: "%H:%M:%S"
+
+defaults:
+  -
+    scope:
+      path: "" # an empty string here means all files in the project
+    values:
+      layout: "default"
+      author: "Ramsesoriginal"
