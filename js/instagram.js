@@ -24,5 +24,7 @@ $(document).ready(function() {
 		$("#instagramPic").html(
 			linkStart + imgTag + "</a>"
 		);
+		if (document.masonryActive)
+			$("main").masonry();
 	});
 });

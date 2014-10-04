@@ -10,6 +10,7 @@ $(document).ready(function() {
 		var $container = $('main');
 		var em = parseFloat( $container.css('font-size') );
 		if (mq.matches) {
+			document.masonryActive=true;
 			// window width is at least 1000px
 			  $container.masonry({
 			    columnWidth: 5 * em,
@@ -21,6 +22,7 @@ $(document).ready(function() {
 			  );
 		}
 		else {
+			document.masonryActive=false;
 			// window width is less than 1000px
 			$container.masonry( 'destroy' );
 		}

@@ -23,4 +23,7 @@ $.getJSON( "http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=r
 	$('#lastfmArtist').html(
 		linkStart + " ~ " + track.artist["#text"] + "</a>"
 	);
+	
+	if (document.masonryActive)
+		$("main").masonry();
 });

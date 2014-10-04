@@ -26,4 +26,7 @@ $.getJSON( "https://api.flickr.com/services/rest/?api_key=29feb9f747725dfe65a50b
   $("#flickPic").html(
   	linkStart + imgTag + "</a>"
   );
+  
+	if (document.masonryActive)
+		$("main").masonry();
 });
