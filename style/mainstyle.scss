@@ -190,17 +190,21 @@ main {
 
 			&.image {
 				width: 29.5em;
+				min-height: 15em;
 			}
 
 			&.latestpost {
 				width: 34.5em;
+				min-height: 5em;
 			}
 
 			&.instagram {
 				width: 19.5em;
+				min-height: 20em;
 			}
 			&.github {
 				width: 24.5em;
+				min-height: 10em;
 			}
 
 
