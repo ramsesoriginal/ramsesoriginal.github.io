@@ -143,20 +143,17 @@ main {
 	padding: 1em;
 	padding-bottom: 3em;
 	article {
-		display: inline-block;
-		width: 14.5em;
+		display: block;
+		width: 90%;
 		padding: 0.25em;
 		overflow: hidden;
+		margin-bottom: 1em;
 
 		-webkit-box-shadow: 0 0 0.75em 0 rgba(200,200,200,0.1);
 		-moz-box-shadow:    0 0 0.75em 0 rgba(200,200,200,0.1);
 		box-shadow:         0 0 0.75em 0 rgba(200,200,200,0.1);
 		background-color: rgba(200,200,200,0.1);
 		border-radius: 0 0.75em;
-		&.image {
-			width: 24.5em;
-		}
-
 		&.twitter {
 			height: 17em;
 		}
@@ -175,6 +172,20 @@ main {
 		}
 		footer {
 			text-align: right;
+		}
+	}
+}
+
+@media all and (min-width: 1000px) {
+	main {
+		article, article.image {
+			display: inline-block;
+			width: 14.5em;
+
+			&.image {
+				width: 24.5em;
+			}
+
 		}
 	}
 }
