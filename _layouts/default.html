@@ -22,16 +22,16 @@
 			<h1>Find your way around here</h1>
 			<ul>
 				<li>
-					<a href="/"><i class="fa fa-home"></i><span class="tooltip">Home</span></a>
+					<a href="{{ site.url }}/"><i class="fa fa-home"></i><span class="tooltip">Home</span></a>
 				</li>
 				<li>
-					<a href="/blog/"><i class="fa fa-newspaper-o"></i><span class="tooltip">Blog</span></a>
+					<a href="{{ site.url }}/blog/"><i class="fa fa-newspaper-o"></i><span class="tooltip">Blog</span></a>
 				</li>
 				<li>
-					<a href="/projects/"><i class="fa fa-rocket"></i><span class="tooltip">Projects</span></a>
+					<a href="{{ site.url }}/projects/"><i class="fa fa-rocket"></i><span class="tooltip">Projects</span></a>
 				</li>
 				<li>
-					<a href="/about/"><i class="fa fa-user"></i><span class="tooltip">About</span></a>
+					<a href="{{ site.url }}/about/"><i class="fa fa-user"></i><span class="tooltip">About</span></a>
 				</li>
 			</ul>
 		</nav>
@@ -42,5 +42,8 @@
 	<footer id="footer">
 		{% include footer.html %}
 	</footer>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+	<script src="{{ site.url }}/js/flickr.js"></script> 
+	<script src="{{ site.url }}/js/last.fm.js"></script> 
 </body>
 </html>

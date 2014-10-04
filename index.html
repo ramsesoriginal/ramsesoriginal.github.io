@@ -1,6 +1,41 @@
 ---
 ---
 <article>
-	<h1>
-	</h1>
+	<header>
+		<h1>
+			Last post: <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+		</h1>
+		<time datetime="{{ site.posts.first.date }}" class="pubdate">
+			{{ site.posts.first.date | date: "%d. %m. %Y" }}
+		</time>
+	</header>
+	<p>
+		{{ site.posts.first.excerpt }}
+	</p>
+	<footer>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
+	</footer>
+</article>
+<article>
+	<header>
+		<h1 id="flickrLink">
+		</h1>
+	</header>
+	<div id="flickPic">
+	</div>
+	<footer>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
+	</footer>
+</article>
+
+<article>
+	<header>
+		<h1 id="lastfmLink">
+		</h1>
+	</header>
+	<div id="lastfmPic">
+	</div>
+	<footer>
+		 <span class="author" id="lastfmArtist"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
+	</footer>
 </article>

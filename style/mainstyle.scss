@@ -12,7 +12,7 @@
   -o-transition:      all 0.2s ease;
   transition:         all 0.2s ease;
 
-  vertical-align: middle;
+  vertical-align: top;
 
   background-repeat: no-repeat;
 }
@@ -45,6 +45,14 @@ main h1 {
 	font-family: 'Oswald', sans-serif;
 }
 
+a {
+	color: #ccc;
+	text-decoration: none;
+	margin: none;
+	padding: none;
+	vertical-align: top;
+}
+
 #header {
 	overflow: hidden;
 	position: relative;
@@ -75,12 +83,14 @@ main h1 {
 		position: absolute;
 		top: 0.75em;
 		right: 0.5em;
+  		vertical-align: middle;
 
 		ul, ul li, ul li a {
 			display: block;
 			padding: 0;
 			margin: 0;
 			list-style: none;
+  			vertical-align: middle;
 		}
 
 		h1 {
@@ -130,7 +140,24 @@ main h1 {
 }
 
 main {
+	padding: 1em;
 	padding-bottom: 3em;
+	article {
+		display: inline-block;
+		width: auto;
+		max-width: 17em;
+		time,
+		.author {
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		footer {
+			text-align: right;
+		}
+	}
 }
 
 #footer {
