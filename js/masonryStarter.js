@@ -1,7 +1,10 @@
 $(document).ready(function() {
-	var mq = window.matchMedia("(min-width: 1000px)");
-	mq.addListener(WidthChange);
-	WidthChange(mq);
+	var container = document.querySelector('main');
+	imagesLoaded( container, function() {
+		var mq = window.matchMedia("(min-width: 1000px)");
+		mq.addListener(WidthChange);
+		WidthChange(mq);
+	});
 
 	function WidthChange(mq) {
 		var $container = $('main');
@@ -12,6 +15,10 @@ $(document).ready(function() {
 			    columnWidth: 5 * em,
 			    itemSelector: 'article'
 			  });
+			  $container.imagesLoaded().always(function() {
+					 $container.masonry();
+				}
+			  );
 		}
 		else {
 			// window width is less than 1000px
@@ -19,5 +26,5 @@ $(document).ready(function() {
 		}
 
 	}
-}
+});
 

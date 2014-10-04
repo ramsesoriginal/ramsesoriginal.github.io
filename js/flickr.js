@@ -1,4 +1,5 @@
-$.getJSON( "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=5c614dfbc3ba968e600ef21b0cebb014&user_id=31292129%40N00&per_page=1&page=1&format=json&nojsoncallback=1", function( data ) {
+$.getJSON( "https://api.flickr.com/services/rest/?api_key=29feb9f747725dfe65a50bc23f8bcb08&method=flickr.photos.search&user_id=31292129%40N00&per_page=1&page=1&format=json&nojsoncallback=1", function( data ) {
+
   var photo = data.photos.photo[0];
   var linkStart = '<a href="https://www.flickr.com/photos/ramsesoriginal/'
   	+ photo.id 

@@ -26,7 +26,7 @@ html {
 	//font-size: 32px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){ 
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dppx){ 
     /* Retina-specific stuff here */
 	font-size: 32px;
 }
@@ -192,8 +192,15 @@ main {
 				width: 29.5em;
 			}
 
+			&.latestpost {
+				width: 34.5em;
+			}
+
 			&.instagram {
 				width: 19.5em;
+			}
+			&.github {
+				width: 24.5em;
 			}
 
 
