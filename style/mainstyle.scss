@@ -144,8 +144,27 @@ main {
 	padding-bottom: 3em;
 	article {
 		display: inline-block;
-		width: auto;
-		max-width: 17em;
+		width: 14.5em;
+		padding: 0.25em;
+		overflow: hidden;
+
+		-webkit-box-shadow: 0 0 0.75em 0 rgba(200,200,200,0.1);
+		-moz-box-shadow:    0 0 0.75em 0 rgba(200,200,200,0.1);
+		box-shadow:         0 0 0.75em 0 rgba(200,200,200,0.1);
+		background-color: rgba(200,200,200,0.1);
+		border-radius: 0 0.75em;
+		&.image {
+			width: 24.5em;
+		}
+
+		&.twitter {
+			height: 17em;
+		}
+
+		&.lastfm {
+			height: 20.5em;
+		}
+
 		time,
 		.author {
 			font-family: 'Open Sans Condensed', sans-serif;

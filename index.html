@@ -3,7 +3,7 @@
 <article>
 	<header>
 		<h1>
-			Last post: <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+			Latest post: <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
 		</h1>
 		<time datetime="{{ site.posts.first.date }}" class="pubdate">
 			{{ site.posts.first.date | date: "%d. %m. %Y" }}
@@ -16,7 +16,7 @@
 		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
 	</footer>
 </article>
-<article>
+<article class="image">
 	<header>
 		<h1 id="flickrLink">
 		</h1>
@@ -24,11 +24,11 @@
 	<div id="flickPic">
 	</div>
 	<footer>
-		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
+		 <span class="author"><a href="https://www.flickr.com/photos/ramsesoriginal/"> ~ ramsesoriginal </a></span>
 	</footer>
 </article>
 
-<article>
+<article class="lastfm">
 	<header>
 		<h1 id="lastfmLink">
 		</h1>
@@ -36,6 +36,30 @@
 	<div id="lastfmPic">
 	</div>
 	<footer>
-		 <span class="author" id="lastfmArtist"><a href="{{ site.url }}/about/"> ~ {{ site.posts.first.author }} </a></span>
+		 <span class="author" id="lastfmArtist"></span>
+	</footer>
+</article>
+
+<article class="twitter">
+	<header>
+		<h1>
+			Latest tweet
+		</h1>
+	</header>
+	<a class="twitter-timeline" href="https://twitter.com/ramsesoriginal" data-widget-id="518365127897141248">Tweets by @ramsesoriginal</a>
+	<script>
+	!function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0];
+		if(!d.getElementById(id)){
+			js=d.createElement(s);
+			js.id=id;
+			js.src="//platform.twitter.com/widgets.js";
+			js.setAttribute('onload', "twttr.events.bind('rendered',function(e) {twitterLoaded(e)});");
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}(document,"script","twitter-wjs");
+	</script>
+	<footer>
+		 <span class="author"><a href="https://twitter.com/ramsesoriginal"> ~ @ramsesoriginal </a></span>
 	</footer>
 </article>
