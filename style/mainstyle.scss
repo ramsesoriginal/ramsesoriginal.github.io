@@ -23,6 +23,12 @@ html {
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
+	//font-size: 32px;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi){ 
+    /* Retina-specific stuff here */
+	font-size: 32px;
 }
 
 body {
