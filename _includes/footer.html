@@ -7,7 +7,3 @@ Number of words: {{ page.content | number_of_words | intword }}
 Reading time: {{ page.content | reading_time }}
 
 Date: {{ page.date | naturalday }}
-
-<div class='cloud'>
-	{% tag_cloud  font-size: 0.80 - 1.80em, threshold: 10% %}
-</div>
