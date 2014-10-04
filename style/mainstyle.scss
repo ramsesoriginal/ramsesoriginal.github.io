@@ -150,7 +150,7 @@ main {
 	padding-bottom: 3em;
 	article {
 		display: block;
-		width: 90%;
+		width: 100%;
 		padding: 0.25em;
 		overflow: hidden;
 		margin-bottom: 1em;
@@ -189,8 +189,13 @@ main {
 			width: 14.5em;
 
 			&.image {
-				width: 24.5em;
+				width: 29.5em;
 			}
+
+			&.instagram {
+				width: 19.5em;
+			}
+
 
 		}
 	}
