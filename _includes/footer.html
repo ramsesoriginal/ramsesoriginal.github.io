@@ -8,7 +8,7 @@ Reading time: {{ page.content | reading_time }}
 
 Date: {{ page.date | naturalday }}
 
-Generated at: {% render_time %}
+Generated at: {% Time.now.strftime(context.registers[:site].config['date_format'] + " " + context.registers[:site].config['time_format']) %}
 
 <div class='cloud'>
 	{% tag_cloud  font-size: 0.80 - 1.80em, threshold: 10% %}
