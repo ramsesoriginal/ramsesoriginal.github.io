@@ -15,7 +15,7 @@ if (document.enableInstagram)  {
 			var imgUrl = photo.images.standard_resolution.url;
 			var imgTag = '<img src="'
 				+ imgUrl
-				+ '" alt="'
+				+ '" onload="$(\'main > .wrapper\').masonry();" alt="'
 				+ photo.caption.text
 				+ '" />';
 			$("#instagramLink").html(

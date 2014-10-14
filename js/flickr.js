@@ -16,7 +16,7 @@ if (document.enableFlickr) {
     	+ '.jpg';
     var imgTag = '<img src="'
     	+ imgUrl
-    	+ '" alt="'
+    	+ '" onload="$(\'main > .wrapper\').masonry();" alt="'
     	+ photo.title
     	+ '" />';
 

@@ -9,7 +9,7 @@ if (document.enableLastFM) {
 		var imgUrl = track.image[3]["#text"];
 		var imgTag = '<img src="'
 			+ imgUrl
-			+ '" alt="'
+			+ '" onload="$(\'main > .wrapper\').masonry();" alt="'
 			+ track.name
 			+ '" />';
 

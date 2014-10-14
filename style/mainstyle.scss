@@ -191,7 +191,7 @@ main {
 	.wrapper {
 		padding: 1em;
 		overflow: hidden;
-		
+
 		h1 {
 			color: #dd3b2a;
 		}
@@ -258,16 +258,24 @@ main {
 	main .wrapper {
 		.smallbox, .smallbox.image {
 			display: inline-block;
-			width: 14.5em;
-
+			min-width: 14.5em;
+			width: auto;
 			&.image {
 				width: 29.5em;
 				min-height: 15em;
 			}
 
-			&.latestpost {
-				width: 34.5em;
+			&.latestpost, &.secondlatestpost, &.thirdlatestpost {
+				max-width: 34.5em;
 				min-height: 5em;
+			}
+
+			&.latestpost {
+				max-width: 39.5em;
+			}
+
+			&.thirdlatestpost {
+				width: 19.5em;
 			}
 
 			&.instagram {
@@ -275,8 +283,15 @@ main {
 				min-height: 20em;
 			}
 			&.github {
-				width: 24.5em;
+				min-width: 24.5em;
+				max-width: 34.5em;
 				min-height: 10em;
+			}
+			&.lastfm {
+				max-width: 19.5em;
+			}
+			&.twitter {
+				width: 14.5em;
 			}
 
 
