@@ -18,12 +18,10 @@
 }
 
 html {
-	background: url(img/background.png) #333 repeat;
-	color: #aaa;
 	font-family: 'Open Sans', sans-serif;
 	margin: 0;
 	padding: 0;
-	//font-size: 32px;
+	color: #333;
 }
 
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dppx){ 
@@ -37,61 +35,65 @@ body {
 }
 
 h1 {
-	font-family: 'Lobster', cursive;
-	line-height: 1.5;
-	margin: 0;
-	font-size: 2em;
+	font-family: 'Roboto Slab', serif;
 }
 
-h2 {
+input, textarea {
 	font-family: 'Open Sans Condensed', sans-serif;
-	margin: 0;
-	font-size: 1.5em;
-}
-
-main h1 {
-	font-family: 'Oswald', sans-serif;
 }
 
 a {
-	color: #ccc;
+	color: #2babe1;
 	text-decoration: none;
-	margin: none;
-	padding: none;
-	vertical-align: top;
 }
 
 #header {
 	overflow: hidden;
+	margin: 0 auto;
+	max-width: 1040px;
 	position: relative;
-	-webkit-box-shadow: 0 1em 2em 0 #111;
-	-moz-box-shadow:    0 1em 2em 0 #111;
-	box-shadow:         0 1em 2em 0 #111;
-	border-bottom: 1px #111 solid;
-	margin-bottom: 1em;
-	background: #333;
+	text-align: center;
+	top: 0;
+	width: 100%;
+	z-index: 1;
 
-	hgroup {
+	h1 {
+		background: white;
 		display: inline-block;
-		padding: 0.5em;
-		padding-bottom: 1em;
-		line-height: 1;
-		h1 {
-			margin: 0;
-			padding: 0;
-			color: #ccc;
+		min-height: 1em;
+		margin: 0.1em auto 0;
+		padding: 0 0.25em;
+		z-index: 2;
+		font-size: 7em;
+		font-weight: 500;
+		&::after {
+			background-color: #dd3b2a;
+			content: '';
+			height: 2px;
+			left: 0;
+			top: 0.8em;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
 		}
-		h2 {
-			font-size: 1em;
-		}
+	}
+
+	h2 {
+		text-align: right;
+		max-width: 695px;
+		margin: -10px auto 0;
+		width: 100%;
+		color: #dd3b2a;
+		font-size: 2em;
+		font-style: italic;
+		font-weight: 400;
 	}
 
 	nav {
 
-		position: absolute;
-		top: 0.75em;
-		right: 0.5em;
   		vertical-align: middle;
+  		margin: 0 auto;
+		display: inline-block;
 
 		ul, ul li, ul li a {
 			display: block;
@@ -99,6 +101,7 @@ a {
 			margin: 0;
 			list-style: none;
   			vertical-align: middle;
+			color: #dd3b2a;
 		}
 
 		h1 {
@@ -112,7 +115,7 @@ a {
 			justify-content: flex-start;
 			align-items: flex-start;
 			align-content: flex-start;
-			width: 15em;
+			width: 20em;
 			li {
 				display: inline-block;
 				margin: auto;
@@ -122,7 +125,6 @@ a {
 					padding: 1em 0.5em;
 					text-decoration: none;
 					position: relative;
-					color: #aaa;
 					border: 1px rgba(0,0,0,0) solid;
 					.icon {
 						font-size: 2em;
@@ -133,12 +135,11 @@ a {
 						overflow: hidden;
 					}
 					&:hover {
-						border: 1px #222 solid;
-						background-color: #444;
+						border: 1px #dd3b2a solid;
+						/*background-color: #444;*/
 						border-radius: 0.5em 0;
 						.tooltip {
-							width:4em;
-							height:auto;
+							width: 5em;
 						}
 					}
 				}
@@ -147,52 +148,100 @@ a {
 	}
 }
 
+aside#logo {
+	width: 100%;
+	height: 25em;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+	margin: 2.5em 0;
+	img {
+		width: 25em;
+		height: 25em;
+  		margin: 0 auto;
+		display: inline-block;
+		position: fixed;
+		left: 50%;
+		margin-left: -12.5em;
+
+	}
+}
+
 main {
-	padding: 1em;
-	padding-bottom: 3em;
-	article {
-		display: block;
-		width: 100%;
-		padding: 0.25em;
-		overflow: hidden;
-		margin-bottom: 1em;
-
-		-webkit-box-shadow: 0 0 0.75em 0 rgba(200,200,200,0.1);
-		-moz-box-shadow:    0 0 0.75em 0 rgba(200,200,200,0.1);
-		box-shadow:         0 0 0.75em 0 rgba(200,200,200,0.1);
-		background-color: rgba(200,200,200,0.1);
-		border-radius: 0 0.75em;
-		&.twitter {
-			height: 17em;
-		}
-
-		&.lastfm {
-			height: 20.5em;
-		}
-
-		time,
-		.author {
-			font-family: 'Open Sans Condensed', sans-serif;
-		}
-		img {
-			max-width: 100%;
-			height: auto;
-		}
-		footer {
-			text-align: right;
-		}
+	background-color: rgba(255, 255, 255, 0.9);
+	border-top: 5px solid #dd3b2a;
+	border-bottom: 5px solid #2babe1;
+	position: relative;
+	width: 100%;
+	z-index: 3;
+	padding: 0;
+	.wrapper {
+		padding: 1em;
 		h1 {
-			font-size: 1.5em;
+			color: #dd3b2a;
 		}
-		h2 {
-			font-size: 1.25em;
+		.smallbox {
+			display: block;
+			width: 100%;
+			padding: 0.25em;
+			overflow: hidden;
+			margin-bottom: 1em;
+
+			border: 1px solid #dd3b2a;
+
+
+
+			  -webkit-transition: all 0 ease;
+			  -moz-transition:    all 0 ease;
+			  -ms-transition:     all 0 ease;
+			  -o-transition:      all 0 ease;
+			  transition:         all 0 ease;
+
+			&.twitter {
+				height: 17em;
+			}
+
+			&.lastfm {
+				height: 22.5em;
+			}
+
+			time,
+			.author {
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+			footer {
+				text-align: right;
+			}
+			h1 {
+				font-size: 1.5em;
+			}
+			h2 {
+				font-size: 1.25em;
+			}
+			.instagramPic {
+				img {
+					width: 302px;
+					height: 302px;
+				}
+			}
+
+			.lastfmPic {
+				img {
+					width: 222px;
+					height: 222px;
+				}
+			}
 		}
 	}
 }
 
 @media all and (min-width: 1000px) {
-	main {
-		article, article.image {
+	main .wrapper {
+		.smallbox, .smallbox.image {
 			display: inline-block;
 			width: 14.5em;
 
@@ -222,18 +271,61 @@ main {
 
 #footer {
 	overflow: hidden;
-	position: fixed;
 	width: 100%;
-	height: 2em;
-	bottom: 0;
-	left: 0;
-	-webkit-box-shadow: 0 -1em 2em 0 #111;
-	-moz-box-shadow:    0 -1em 2em 0 #111;
-	box-shadow:         0 -1em 2em 0 #111;
-	border-top: 1px #111 solid;
-	margin-top: 1em;
-	padding-top: 0.25em;
-	padding-bottom: 0.25em;
-	padding-left: 0.5em;
-	background: #333 ;
+	background: #2babe1;
+	border-top: 5px solid #edf6ff;
+	padding: 1em;
+	position: relative;
+	z-index: 4;
+
+	.metaInfo {
+		border-right: 2px solid #edf6ff;
+		float: left;
+		margin-right: 2em;
+		width: 50%;
+	}
+
+	aside {
+		color: #edf6ff;
+		h1 {
+			color: #00374f;
+			font-size: 1.5em;
+			margin-top: 0;
+			font-weight: 500;
+			line-height: 1.25em;
+			margin: 0.5em 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			li {
+				margin-bottom: 12px;
+				display: block;
+				a {
+					color: #00374f;
+					display: block;
+				}
+			}
+		}
+	}
+
+}
+
+aside#articledata {
+	color: #edf6ff;
+	background: #00374f;
+	margin: 0;
+	overflow: hidden;
+	height: 4em;
+	text-align: center;
+	width: 100%;
+	.data{
+		color: #edf6ff;
+		margin-right: 25px;
+		vertical-align: -1em;
+		a {
+			color: #edf6ff;
+			vertical-align: middle;
+		}
+	}
 }

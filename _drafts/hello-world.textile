@@ -6,6 +6,7 @@ categories:
 tags:
   - hello world
   - service message
+comments: true
 ---
 
 <p>This post should be published at {{ page.date | date_to_string }}.</p>

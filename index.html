@@ -1,9 +1,9 @@
 ---
 ---
-<article class="latestpost">
+<article class="latestpost smallbox">
 	<header>
 		<h1>
-			Latest post: <a href="{{ site.posts.first.url }}">{{ site.posts.first.title }}</a>
+			Latest post: <a href="{{ site.posts.first.url }}#disqus_thread">{{ site.posts.first.title }}</a>
 		</h1>
 		<time datetime="{{ site.posts.first.date }}" class="pubdate">
 			{{ site.posts.first.date | date: "%d. %m. %Y" }}
@@ -18,7 +18,7 @@
 </article>
 
 
-<article class="github">
+<article class="github smallbox">
 	<header>
 		<h1 id="githubLink">
 			Latest github activity
@@ -32,7 +32,8 @@
 </article>
 
 
-<article class="image">
+
+<article class="image smallbox">
 	<header>
 		<h1 id="flickrLink">
 		</h1>
@@ -44,9 +45,24 @@
 	</footer>
 </article>
 
+<article class="secondlatestpost smallbox">
+	<header>
+		<h1>
+			Second-to-last post: <a href="{{ site.posts.second.url }}#disqus_thread">{{ site.posts.second.title }}</a>
+		</h1>
+		<time datetime="{{ site.posts.second.date }}" class="pubdate">
+			{{ site.posts.second.date | date: "%d. %m. %Y" }}
+		</time>
+	</header>
+	<p>
+		{{ site.posts.second.excerpt }}
+	</p>
+	<footer>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.second.author }} </a></span>
+	</footer>
+</article>
 
-
-<article class="lastfm">
+<article class="lastfm smallbox">
 	<header>
 		<h1 id="lastfmLink">
 		</h1>
@@ -60,7 +76,7 @@
 
 
 
-<article class="twitter">
+<article class="twitter smallbox">
 	<header>
 		<h1>
 			Latest tweet
@@ -85,7 +101,25 @@
 </article>
 
 
-<article class="instagram">
+<article class="thirdlatestpost smallbox">
+	<header>
+		<h1>
+			Third-to-last post: <a href="{{ site.posts.third.url }}#disqus_thread">{{ site.posts.third.title }}</a>
+		</h1>
+		<time datetime="{{ site.posts.third.date }}" class="pubdate">
+			{{ site.posts.third.date | date: "%d. %m. %Y" }}
+		</time>
+	</header>
+	<p>
+		{{ site.posts.third.excerpt }}
+	</p>
+	<footer>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.third.author }} </a></span>
+	</footer>
+</article>
+
+
+<article class="instagram smallbox">
 	<header>
 		<h1 id="instagramLink">
 		</h1>
@@ -96,3 +130,11 @@
 		 <span class="author"><a href="http://instagram.com/ramsesoriginal"> ~ ramsesoriginal </a></span>
 	</footer>
 </article>
+
+<script>
+document.enableMasonry = true;
+document.enableInstagram = true;
+document.enableLastFM = true;
+document.enableGithub = true;
+document.enableFlickr = true;
+</script>
