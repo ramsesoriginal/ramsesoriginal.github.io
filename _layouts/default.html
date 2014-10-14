@@ -42,10 +42,27 @@
 
 	<main>
 		<div class="wrapper">
+		{% if page.title %}
+		<h1>{{page.title}}</h1>
+
+		<time datetime="{{ page.date }}" class="pubdate">
+			{{ page.date | date: "%d. %m. %Y" }}
+		</time>
+		{% if page.tags %}
+			<span class="tags">Tags: {{ page.tags | array_to_sentence_string }}</span>
+		{% endif %}
+	    {% endif %}
+
 			{{ content }}
 		</div>
+
+		{% if page.title %}
+		 <span class="author main"><a href="{{ site.url }}/about/"> ~ {{ page.author }} </a></span>
+	    {% endif %}
 	{% if page.comments %}
 		<div class="comments">
+			<div id="disqus_thread">
+			</div>
 			 <script type="text/javascript">
 		        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 		        var disqus_shortname = 'ramsesoriginal'; // required: replace example with your forum shortname
@@ -62,6 +79,7 @@
 		</div>
 	{% endif %}
 	
+		{% if page.title %}
     <aside id="articledata">
 		<span class="url data">
 			<a href="{{ site.url }}{{ page.url }}">Permalink</a>
@@ -74,6 +92,7 @@
 		</span>
 
 
+	    {% endif %}
     </aside>
 
 	</main>

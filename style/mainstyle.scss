@@ -175,8 +175,23 @@ main {
 	width: 100%;
 	z-index: 3;
 	padding: 0;
+
+	.main.author {
+		padding-left: 4em;
+		margin-bottom: 1.25em;
+		display: block;
+	}
+	.tags, .pubdate {
+		font-family: 'Open Sans Condensed', sans-serif;
+		display: block;
+	}
+	.comments {
+		padding: 0 1em;
+	}
 	.wrapper {
 		padding: 1em;
+		overflow: hidden;
+		
 		h1 {
 			color: #dd3b2a;
 		}
@@ -202,7 +217,7 @@ main {
 			}
 
 			&.lastfm {
-				height: 22.5em;
+				min-height: 22.5em;
 			}
 
 			time,
@@ -281,12 +296,16 @@ main {
 	.metaInfo {
 		border-right: 2px solid #edf6ff;
 		float: left;
-		margin-right: 2em;
+		/*margin-right: 2em;*/
 		width: 50%;
 	}
 
 	aside {
 		color: #edf6ff;
+		&:not(.metaInfo) {
+			margin-left: 50%;
+			padding-left: 2em;
+		}
 		h1 {
 			color: #00374f;
 			font-size: 1.5em;
@@ -294,6 +313,9 @@ main {
 			font-weight: 500;
 			line-height: 1.25em;
 			margin: 0.5em 0;
+		}
+		a {
+			color: #edf6ff;
 		}
 		ul {
 			list-style: none;

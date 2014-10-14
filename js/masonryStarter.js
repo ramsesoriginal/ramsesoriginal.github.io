@@ -10,7 +10,7 @@ $(document).ready(function() {
 		});
 	}
 	function WidthChange(mq) {
-		var $container = $('main > wrapper');
+		var $container = $('main > .wrapper');
 		var em = parseFloat( $container.css('font-size') );
 		if (mq.matches) {
 			document.masonryActive=true;

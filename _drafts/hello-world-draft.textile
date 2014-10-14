@@ -1,6 +1,6 @@
 ---
 title: Hello World!
-permalink: hello-world
+permalink: hello-world-draft
 categories: 
   - meta
 tags:

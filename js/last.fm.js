@@ -26,6 +26,6 @@ if (document.enableLastFM) {
 		);
 		
 		if (document.masonryActive)
-			$("main > wrapper").masonry();
+			$("main > .wrapper").masonry();
 	});
 }

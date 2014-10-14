@@ -3,7 +3,7 @@
 <article class="latestpost smallbox">
 	<header>
 		<h1>
-			Latest post: <a href="{{ site.posts.first.url }}#disqus_thread">{{ site.posts.first.title }}</a>
+			Latest post: <a href="{{ site.url }}{{ site.posts.first.url }}">{{ site.posts.first.title }}</a> <a href="{{ site.url }}{{ site.posts.first.url }}#disqus_thread"></a>
 		</h1>
 		<time datetime="{{ site.posts.first.date }}" class="pubdate">
 			{{ site.posts.first.date | date: "%d. %m. %Y" }}
@@ -48,17 +48,17 @@
 <article class="secondlatestpost smallbox">
 	<header>
 		<h1>
-			Second-to-last post: <a href="{{ site.posts.second.url }}#disqus_thread">{{ site.posts.second.title }}</a>
+			Second-to-last post: <a href="{{ site.url }}{{ site.posts[1].url }}">{{ site.posts[1].title }}</a> <a href="{{ site.url }}{{ site.posts[1].url }}#disqus_thread"></a>
 		</h1>
-		<time datetime="{{ site.posts.second.date }}" class="pubdate">
-			{{ site.posts.second.date | date: "%d. %m. %Y" }}
+		<time datetime="{{ site.posts[1].date }}" class="pubdate">
+			{{ site.posts[1].date | date: "%d. %m. %Y" }}
 		</time>
 	</header>
 	<p>
-		{{ site.posts.second.excerpt }}
+		{{ site.posts[1].excerpt }}
 	</p>
 	<footer>
-		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.second.author }} </a></span>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts[1].author }} </a></span>
 	</footer>
 </article>
 
@@ -104,17 +104,17 @@
 <article class="thirdlatestpost smallbox">
 	<header>
 		<h1>
-			Third-to-last post: <a href="{{ site.posts.third.url }}#disqus_thread">{{ site.posts.third.title }}</a>
+			Third-to-last post: <a href="{{ site.url }}{{ site.posts[2].url }}">{{ site.posts[2].title }}</a> <a href="{{ site.url }}{{ site.posts[2].url }}#disqus_thread"></a>
 		</h1>
-		<time datetime="{{ site.posts.third.date }}" class="pubdate">
-			{{ site.posts.third.date | date: "%d. %m. %Y" }}
+		<time datetime="{{ site.posts[2].date }}" class="pubdate">
+			{{ site.posts[2].date | date: "%d. %m. %Y" }}
 		</time>
 	</header>
 	<p>
-		{{ site.posts.third.excerpt }}
+		{{ site.posts[2].excerpt }}
 	</p>
 	<footer>
-		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts.third.author }} </a></span>
+		 <span class="author"><a href="{{ site.url }}/about/"> ~ {{ site.posts[2].author }} </a></span>
 	</footer>
 </article>
 
