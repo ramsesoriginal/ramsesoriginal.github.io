@@ -4,7 +4,14 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>ramsesoriginal</title>
+	<title>
+		ramsesoriginal
+
+		{% if page.title %}
+		| {{page.title}}
+
+		{% endif %}
+	</title>
 	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/mainstyle.css">
 	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/syntax.css">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -45,18 +52,20 @@
 		{% if page.title %}
 		<h1>{{page.title}}</h1>
 
+		{% endif %}
+		{% if page.date %}
 		<time datetime="{{ page.date }}" class="pubdate">
 			{{ page.date | date: "%d. %m. %Y" }}
 		</time>
+	    {% endif %}
 		{% if page.tags %}
 			<span class="tags">Tags: {{ page.tags | array_to_sentence_string }}</span>
 		{% endif %}
-	    {% endif %}
 
 			{{ content }}
 		</div>
 
-		{% if page.title %}
+		{% if page.id %}
 		 <span class="author main"><a href="{{ site.url }}/about/"> ~ {{ page.author }} </a></span>
 	    {% endif %}
 	{% if page.comments %}
