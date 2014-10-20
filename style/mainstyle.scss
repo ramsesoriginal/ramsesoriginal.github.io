@@ -34,7 +34,7 @@ body {
 	padding: 0;
 }
 
-h1 {
+h1, h2, h3 {
 	font-family: 'Roboto Slab', serif;
 }
 
@@ -45,6 +45,19 @@ input, textarea {
 a {
 	color: #2babe1;
 	text-decoration: none;
+}
+
+abbr[title] {
+	border: none;
+}
+
+abbr {
+	border-bottom: 1px dotted #30e0ad;
+}
+
+abbr:hover::after {
+  content: ' (' attr(title) ')';
+  text-shadow: 0 0 1em #dd3b2a;
 }
 
 #header {
@@ -193,12 +206,42 @@ main {
 		padding: 1em;
 		overflow: hidden;
 
+		& > * {
+			max-width: 1080px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
 		h1 {
 			color: #dd3b2a;
 			font-size: 2em;
 		}
 
+		
+		& > h2 {
+			position: relative;
+			color: #dd3b2a;
+		}
+
+		& > h2 {
+			padding-top: 2em;
+		}
+
+		& > h2:before {
+			border: 1px solid #dd3b2a;
+			content: '';
+			display: block;
+			height: 0px;
+			left: 50%;
+			position: absolute;
+			margin-left: -7.5em;
+			margin-top: -1em;
+			width: 15em;;
+		}
+
 		article {
+			border-top: 5px solid #cce4fb;
+			position: relative;
 			h1 {
 				font-size: 1.25em;
 			}
@@ -207,6 +250,7 @@ main {
 		article.smallbox {
 			display: block;
 			width: 100%;
+			max-width: auto;
 			padding: 0.25em;
 			overflow: hidden;
 			margin-bottom: 1em;
