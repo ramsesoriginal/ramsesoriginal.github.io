@@ -26,7 +26,9 @@ html {
 
 @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dppx){ 
     /* Retina-specific stuff here */
-	font-size: 32px;
+    html {
+		font-size: 32px;
+	}
 }
 
 body {
