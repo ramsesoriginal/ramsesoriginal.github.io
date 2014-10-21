@@ -79,7 +79,7 @@ abbr:hover::after {
 		margin: 0.1em auto 0;
 		padding: 0 0.25em;
 		z-index: 2;
-		font-size: 7em;
+		font-size: 3em;
 		font-weight: 500;
 		color: #333;
 		&::after {
@@ -208,6 +208,21 @@ main {
 		padding: 1em;
 		overflow: hidden;
 
+
+		figure {
+			display: block;
+			margin-top: 1em;
+			margin-bottom: 1em;
+			margin-left: 40px;
+			margin-right: 40px;
+			img, iframe, span, blockquote {
+				width: 100%;
+			}
+			figcaption {
+				display: block;
+			}
+		}
+
 		& > * {
 			max-width: 1080px;
 			margin-left: auto;
@@ -251,7 +266,7 @@ main {
 
 		article.smallbox {
 			display: block;
-			width: 100%;
+			width: 90%;
 			max-width: auto;
 			padding: 0.25em;
 			overflow: hidden;
@@ -280,7 +295,7 @@ main {
 				font-family: 'Open Sans Condensed', sans-serif;
 			}
 			img {
-				max-width: 100%;
+				width: 100%;
 				height: auto;
 			}
 			footer {
@@ -309,8 +324,29 @@ main {
 	}
 }
 
+.Disclaimer {
+	p {
+		max-height: 187px;
+		overflow: auto;
+	}
+}
+
 @media all and (min-width: 1000px) {
+	#header {
+		h1 {
+			font-size: 7em;
+		}
+	}
+
+
 	main .wrapper {
+
+		figure {
+			img, iframe, span, blockquote {
+				width: auto;
+			}
+		}
+
 		article.smallbox, article.smallbox.image {
 			display: inline-block;
 			min-width: 14.5em;
@@ -318,6 +354,11 @@ main {
 			&.image {
 				max-width: 29.5em;
 				min-height: 15em;
+				img {
+					width: auto;
+					max-width: 100%;
+					height: auto;
+				}
 			}
 
 			&.latestpost, &.secondlatestpost, &.thirdlatestpost {
