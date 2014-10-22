@@ -1,0 +1,8 @@
+---
+title: robots.txt
+layout: rss
+---
+User-agent: *
+Allow: /
+Sitemap: {{ site.production_url }}/sitemap.txt
+Sitemap: {{ site.production_url }}/sitemap.xml
