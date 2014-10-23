@@ -16,17 +16,17 @@
 		<meta name="description" content="{{ page.excerpt | truncate:155 }}" />
 	{% endif %}
 
-	<meta name="twitter:card" content="summary">
-	<meta name="twitter:site" content="@ramsesoriginal">
-	<meta name="twitter:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}">
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@ramsesoriginal"/>
+	<meta name="twitter:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}"/>
 	<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | truncate:200 }}{% else %}Homepage for ramsesoriginal{% endif %}">
-	<meta name="twitter:creator" content="@ramsesoriginal">
-	<-- Twitter Summary card images must be at least 120x120px -->
-	<meta name="twitter:image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}">
+	<meta name="twitter:creator" content="@ramsesoriginal"/>
+	<!-- Twitter Summary card images must be at least 120x120px -->
+	<meta name="twitter:image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}" />
 
-	<meta itemprop="name" content="ramsesoriginal{% if page.title %} | {{page.title}}{% endif %}">
-	<meta itemprop="description" content="{% if page.excerpt %}{{ page.excerpt }}{% else %}Homepage for ramsesoriginal{% endif %}">
-	<meta itemprop="image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}">
+	<meta itemprop="name" content="ramsesoriginal{% if page.title %} | {{page.title}}{% endif %}"/>
+	<meta itemprop="description" content="{% if page.excerpt %}{{ page.excerpt }}{% else %}Homepage for ramsesoriginal{% endif %}"/>
+	<meta itemprop="image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}"/>
 
 	<meta property="og:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}" />
 	<meta property="og:type" content="article" />
@@ -38,12 +38,12 @@
 
 	<meta name="author" content="Stefan ramsesoriginal Insam" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/mainstyle.css">
-	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/syntax.css">
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Open+Sans+Condensed:300,300italic|Open+Sans:400italic,600italic,700italic,800italic,700,800,400,600' rel='stylesheet' type='text/css'>
-	<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/atom.xml">
-	<link rel="alternate" type="application/atom+xml" title="{{ site.name }} Summaries" href="{{ site.url }}/atomShort.xml">
+	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/mainstyle.css" />
+	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/syntax.css" />
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Open+Sans+Condensed:300,300italic|Open+Sans:400italic,600italic,700italic,800italic,700,800,400,600' rel='stylesheet' type='text/css' />
+	<link rel="alternate" type="application/atom+xml" title="{{ site.name }}" href="{{ site.url }}/atom.xml" />
+	<link rel="alternate" type="application/atom+xml" title="{{ site.name }} Summaries" href="{{ site.url }}/atomShort.xml" />
 </head>
 <body>
 	<header id="header" class="">
