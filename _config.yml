@@ -11,6 +11,8 @@ rssbaseurl: http://ramsesoriginal.github.io/
 date_format: "%d. %m. %Y"
 time_format: "%H:%M:%S"
 
+url: "http://ramsesoriginal.info"
+
 defaults:
   -
     scope:
