@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>
 		ramsesoriginal
 
@@ -12,6 +12,30 @@
 
 		{% endif %}
 	</title>
+	{% if page.excerpt %}
+		<meta name="description" content="{{ page.excerpt | truncate:155 }}" />
+	{% endif %}
+
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@ramsesoriginal">
+	<meta name="twitter:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}">
+	<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | truncate:200 }}{% else %}Homepage for ramsesoriginal{% endif %}">
+	<meta name="twitter:creator" content="@ramsesoriginal">
+	<-- Twitter Summary card images must be at least 120x120px -->
+	<meta name="twitter:image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}">
+
+	<meta itemprop="name" content="ramsesoriginal{% if page.title %} | {{page.title}}{% endif %}">
+	<meta itemprop="description" content="{% if page.excerpt %}{{ page.excerpt }}{% else %}Homepage for ramsesoriginal{% endif %}">
+	<meta itemprop="image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}">
+
+	<meta property="og:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="{{ page.url }}" />
+	<meta property="og:image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}" />
+	<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt }}{% else %}Homepage for ramsesoriginal{% endif %}" /> 
+	<meta property="og:site_name" content="ramsesoriginal" />
+	<meta property="fb:admins" content="1184037013" />
+
 	<meta name="author" content="Stefan ramsesoriginal Insam" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" type="text/css" href="{{ site.url }}/style/mainstyle.css">
@@ -22,7 +46,6 @@
 	<link rel="alternate" type="application/atom+xml" title="{{ site.name }} Summaries" href="{{ site.url }}/atomShort.xml">
 </head>
 <body>
-
 	<header id="header" class="">
 		<hgroup>
 			<a href="{{ site.url }}/"><h1>ramsesoriginal</h1></a>
