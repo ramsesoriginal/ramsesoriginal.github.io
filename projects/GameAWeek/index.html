@@ -75,11 +75,12 @@ preview: /assets/images/guy-with-a-plan.gif
 <style>
 ol.gameAweek {
 	list-style: none;
-	counter-reset: gameAweek 0;
+	counter-reset: gameAweek -1;
 }
 ol.gameAweek li {
 	position: relative;
 	padding: 1em;
+	counter-increment: gameAweek;
 }
 ol.gameAweek li:before {
 	position: absolute;
@@ -116,23 +117,43 @@ ol.gameAweek li.prototype span.prototype{
 	font-size: 1.5em;
 	transform: rotate(45deg);
 }
+
+ol.gameAweek li span.text{
+	margin-left: 16em;
+	display: block;
+}
+
 </style>
 <ol start="0" class="gameAweek">
 	<li class="prototype">
 		<div>
 			<span class="prototype">PROTOYPE</span>
 			<a href="http://ramsesoriginal.info/GAW-1/"><img src="https://raw.githubusercontent.com/ramsesoriginal/GAW-1/master/Screenshot/Screenshot2014-16-8--13-51-09.png"/></a>
+			<span class="text">
 			<a href="http://ramsesoriginal.info/GAW-1/"><h3>GAW-1: EXTREME BALLS!</h3></a>
 			An abstract local multiplayer downhill racing game with balls. <br />
 			It's mostly just a buggy mess.
+			</span>
 		</div>
 	</li>
 	<li>
 		<div>
-			<a href="j.mp/1wYJ7Wn"><img src="https://raw.githubusercontent.com/ramsesoriginal/GAW-1-Take-2/master/Downloads/Screens/DropBall.PNG"/></a>
-			<a href="j.mp/1wYJ7Wn"><h3>GAW-1, Take 2: A-MazeBalls!</h3></a>
+			<a href="http://j.mp/1wYJ7Wn"><img src="https://raw.githubusercontent.com/ramsesoriginal/GAW-1-Take-2/master/Downloads/Screens/DropBall.PNG"/></a>
+			<span class="text">
+			<a href="http://j.mp/1wYJ7Wn"><h3>GAW-1, Take 2: A-MazeBalls!</h3></a>
 			A platformer where you play a bouncy ball collecting red cubes <br />
 			Simple, small and short, but my first full game!
+			</span>
+		</div>
+	</li>
+	<li>
+		<div>
+			<a href="http://j.mp/1ytRrwT"><img src="{{ site.url }}/assets/images/gaw-ross-walk.gif"/></a>
+			<span class="text">
+			<a href="http://j.mp/1ytRrwT"><h3>GAW-2: First failure </h3></a>
+			Second week of the project, and already the first failure. <br />
+			Because of lack of planning I had no idea what I was doing, and how to achieve it. Thus I have nothing usable. Better Luck next week.
+			</span>
 		</div>
 	</li>
 </ol>

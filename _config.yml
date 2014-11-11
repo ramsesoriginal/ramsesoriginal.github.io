@@ -11,8 +11,8 @@ rssbaseurl: http://ramsesoriginal.info
 date_format: "%d. %m. %Y"
 time_format: "%H:%M:%S"
 
-url: "http://ramsesoriginal.info"
-#url: "http://localhost:4000"
+#url: "http://ramsesoriginal.info"
+url: "http://localhost:4000"
 
 defaults:
   -
