@@ -1,0 +1,36 @@
+---
+title: Facebook Open Graph previews not working with Github Pages and CNAME records
+permalink: 2015/03/21/facebook-open-graph-github-pages
+categories: 
+  - fix
+  - webdev
+tags:
+  - Facebook Open Graph
+  - github
+  - CNAME
+  - Facebook Preview
+comments: true
+preview: /assets/images/Facebook-Preview.png
+---
+<p>Fixing Facebook previews of external links can be easy, but sometimes It's not. In my specific case I managed to find this solution, after a while of research, trial and error.</p>
+
+<figure style="width: 474px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/Facebook-Preview.png" style="width: 474px; height: 162px"  alt="Sorry"/>
+	<figcaption>This is how a Facebook Preview should look like</figcaption>
+</figure>
+
+<p>If you have a page hosted on <a href="https://pages.github.com/">Github Pages</a>, as <a href="{{ site.url }}/homepage-technology">I do</a>, and you set up a custom domain for your page <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-github-pages/">through CNAME records</a>, as <a href="{{ site.url }}/CNAME">I do</a>, you may have seen that if you share your page or anything on that page on Facebook, you won't get any preview. Even if you add the <a href="https://developers.facebook.com/docs/sharing/best-practices">open graph metadata tags</a>, it won't show anything. So how do we get a functioning preview?<p>
+
+<p>My first stop was the <a href="https://developers.facebook.com/tools/debug/og/object/">Facebook debugger tool</a>, with which you can view previews generated for a link, you can see the errors (if there are any), you can refresh the previews, and get some other useful infos. I was puzzled when it told me <q cite="https://developers.facebook.com/tools/debug/og/object/" style="border: 1px solid #da2929; border-left: 1em solid #da2929; border-right: 1em solid #da2929;">Error parsing input URL, no data was cached, or no data was scraped.</q>, and no other info expect a very generic non-preview. On the bottom of the page there's a link to see what to scraper has seen, so I clicked it and was puzzled to say the least: <q cite="https://developers.facebook.com/tools/debug/og/echo?q=http%3A%2F%2Framsesoriginal.info%2Fgood-start-long-absence%2F">Document returned no data</q></p>
+
+<p>I tried different solutions: the first thing I did (Honestly, I should have done it before already) was removing all tags from the "description" part of the text. I used to have <code>&lt;p&gt;</code> tags wrapping around it (because I jsut used the raw <code>page.excerpt</code> <a href="http://jekyllrb.com/docs/posts/">jekyll provides</a>). I did this with a very simple <code> page.excerpt  | remove: '&lt;p&gt;' | remove: '&lt;/p&gt;' </code>, and then I added a <code> | truncate:155 </code> at the end, just to be on the safe side (for Facebook it should not be needed, but since I used this also for other metadata, I decided to go with it). This didn't change a single thing.</p>
+
+<p>My next guess was <a href="http://bit.ly">bit.ly</a>: When I was setting up the site I created a few bit.ly shortlinks to test some stuff, and it gave me a warning that the site contains malaware. I checked and double-checked, everything was clean, and since it's jekyll there can't really be any server-side problem (except if all of Github Pages were infected, which wouldn't have been my problem), and so I contacted bit.ly customer support. They were very nice, and resolved the issue right away (The problem was that my site somehow ended up on their internal blacklist, not clear why). So now that I was working to resolve the Facebook previews, I thought that maybe it's still related to that incident: I was sharing bit.ly links after all. So I tried using the Facebook debugger tool with the raw URL, but strangely I still got the same error.</p>
+
+<p>After (quite a lot) of additional research, I stumbled upon a few other cases that had the same errors with the Facebook previews. Looking for similarities, I saw that a few of them too were hosted on Github Pages. So I tried links from various Github-Hosted pages, and most of them worked... <em>most</em> of them. A-Ha!, there was a pattern! All pages with in the <code>username.github.com</code> or <code>username.github.io</code> domain worked fine, those with custom domain didn't. Could it be that I found the culprit? Yes, apparently I did: after quickly trying to enter <a href="http://ramsesoriginal.github.com/good-start-long-absence/">ramsesoriginal.github.com/good-start-long-absence/</a> in facebook debug tool's adress bar, and pressing enter, voilá! It's showing data!</p>
+
+<p>It appears that it's still a tad inconsistent on how it handles the situation: upon trying to refresh the scratch data sometimes it works, sometimes it doesn't. In the debug tool the preview gets generated correctly, but then if you try to look at it in the share dialog, or when inserting the URL in a Facebook post, it doesn't work.</p>
+
+<p>As far as I can tell this is the best we can do for now: we use the <code>username.github.com</code> or <code>username.github.io</code> links to share on facebook. We can even use them in bit-ly (or other URL shorteners), so it will just redirect from bit.ly to the github.com to the github.io to the canonical domain. Does this work consistently? Now. Is this a good solution? hell no. Can we do better? As far as I understood, for now... sadly not.</p>
+
+<p>I'll keep this updated in case there are any news.</p>
