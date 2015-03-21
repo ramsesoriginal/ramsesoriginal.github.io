@@ -30,7 +30,7 @@
 
 	<meta property="og:title" content="{% if page.title %}{{page.title}}{% else %}ramsesoriginal{% endif %}" />
 	<meta property="og:type" content="article" />
-	<meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+	<meta property="og:url" content="{{ site.url }}{{ page.url }}/" />
 	<meta property="og:image" content="{% if page.preview %}{{ site.url }}{{ page.preview }}{% else %}{{ site.url }}/style/img/logo.png{% endif %}" />
 	<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt  | remove: '<p>' | remove: '</p>' }}{% else %}Homepage for ramsesoriginal{% endif %}" /> 
 	<meta property="og:site_name" content="ramsesoriginal" />
