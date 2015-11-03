@@ -1,0 +1,1207 @@
+---
+title: DnD character sheet generator
+Xpermalink: d-n-d-character-sheet-generator
+categories: 
+  - tools
+  - gaming
+tags:
+  - DnD
+comments: true
+Xpreview: /assets/images/work-computer-bx.jpg
+---
+<p>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo autem debitis, quaerat aspernatur sapiente temporibus, facere, totam nostrum, excepturi voluptatibus fuga! Quis soluta, pariatur fugiat. Modi, esse. Facilis, dolores veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo autem debitis, quaerat aspernatur sapiente temporibus, facere, totam nostrum, excepturi voluptatibus fuga! Quis soluta, pariatur fugiat. Modi, esse. Facilis, dolores veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo autem debitis, quaerat aspernatur sapiente temporibus, facere, totam nostrum, excepturi voluptatibus fuga! Quis soluta, pariatur fugiat. Modi, esse. Facilis, dolores veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo autem debitis, quaerat aspernatur sapiente temporibus, facere, totam nostrum, excepturi voluptatibus fuga! Quis soluta, pariatur fugiat. Modi, esse. Facilis, dolores veritatis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo autem debitis, quaerat aspernatur sapiente temporibus, facere, totam nostrum, excepturi voluptatibus fuga! Quis soluta, pariatur fugiat. Modi, esse. Facilis, dolores veritatis!
+</p>
+
+<style>
+label {
+	display: block;
+}
+</style>
+
+<script>
+Array.prototype.remove = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
+function roll(inputID, sides, dice, dropLowest) {
+	var Rolls = [];
+	var sum = 0;
+	for (var i=0;i<dice;i++) {
+		var d6 = Math.floor(Math.random() * sides) + 1;
+		Rolls.push(d6);
+		sum += d6;
+	}
+
+	for (var j=0; j<dropLowest; j++) {
+		var index = 0;
+		var min = Rolls[0];
+		for (var i = 1; i < Rolls.length; i++) {
+		  if (Rolls[i] < min) {
+		    min = Rolls[i];
+		    index = i;
+		  }
+		}
+		Rolls.remove(index);
+		sum -= min;
+	}
+	document.getElementById(inputID).value = sum;
+	if (document.getElementById(inputID).onblur != null) {
+		document.getElementById(inputID).onblur();
+	}
+}
+</script>
+<script>
+"use strict";
+var Rules = {};
+
+function CreateTraits() {
+	Rules.Sizes = {
+		Tiny: {
+			name: "Tiny",
+			averageSize: 0.75
+		},
+		Small: {
+			name: "Small",
+			averageSize: 1.6
+		},
+		Medium: {
+			name: "Medium",
+			averageSize: 1.6
+		},
+		Large: {
+			name: "Large",
+			averageSize: 3
+		},
+		Huge: {
+			name: "Huge",
+			averageSize: 4.5
+		},
+		Gargantulan: {
+			name: "Gargantulan",
+			averageSize: 6
+		}
+	};
+	Rules.DamageTypes = {
+		Acid: {
+			name: "Acid"
+		},
+		Bludgeoning: {
+			name: "Bludgeoning"
+		},
+		Cold: {
+			name: "Cold"
+		},
+		Fire: {
+			name: "Fire"
+		},
+		Force: {
+			name: "Force"
+		},
+		Lightning: {
+			name: "Lightning"
+		},
+		Necrotic: {
+			name: "Necrotic"
+		},
+		Piercing: {
+			name: "Piercing"
+		},
+		Poison: {
+			name: "Poison"
+		},
+		Psychic: {
+			name: "Psychic"
+		},
+		Radiant: {
+			name: "Radiant"
+		},
+		Slashing: {
+			name: "Slashing"
+		},
+		Thunder: {
+			name: "Thunder"
+		}
+	};
+	Rules.Items = {
+		BattleAxe: {
+			name: "BattleAxe"
+		},
+		Handaxe: {
+			name: "Handaxe"
+		},
+		ThrowingHammer: {
+			name: "Throwing Hammer"
+		},
+		Warhammer: {
+			name: "Warhammer"
+		},
+		SmithsTools: {
+			name: "Smith's Tools"
+		},
+		BrewersSupplies: {
+			name: "Brewer's Supplies"
+		},
+		MasonsTools: {
+			name: "Mason's Tools"
+		}
+	};
+
+	Rules.Attributes = {
+		Strength: {
+			name: "Strength",
+			shorthand: "STR",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		},
+		Dexterity: {
+			name: "Dexterity",
+			shorthand: "DEX",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		},
+		Constitution: {
+			name: "Constitution",
+			shorthand: "CON",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		},
+		Intelligence: {
+			name: "Intelligence",
+			shorthand: "INT",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		},
+		Wisdom: {
+			name: "Wisdom",
+			shorthand: "WIS",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		},
+		Charisma: {
+			name: "Charisma",
+			shorthand: "CHA",
+			randomDice: 4,
+			dropLowest: 1,
+			diceSides: 6
+		}
+	}
+
+	Rules.Checks = {
+		Acrobatics: {
+			name: "Acrobatics",
+			Attribute: Rules.Attributes.Dexterity
+		},
+		AnimalHandling: {
+			name: "Animal Handling",
+			Attribute: Rules.Attributes.Wisdom
+		},
+		Arcana: {
+			name: "Arcana",
+			Attribute: Rules.Attributes.Intelligence
+		},
+		Athletics: {
+			name: "Athletics",
+			Attribute: Rules.Attributes.Strength
+		},
+		Deception: {
+			name: "Deception",
+			Attribute: Rules.Attributes.Charisma
+		},
+		History: {
+			name: "History",
+			Attribute: Rules.Attributes.Intelligence
+		},
+		Insight: {
+			name: "Insight",
+			Attribute: Rules.Attributes.Wisdom
+		},
+		Intimidation: {
+			name: "Intimidation",
+			Attribute: Rules.Attributes.Charisma
+		},
+		Investigation: {
+			name: "Investigation",
+			Attribute: Rules.Attributes.Intelligence
+		},
+		Medicine: {
+			name: "Medicine",
+			Attribute: Rules.Attributes.Wisdom
+		},
+		Nature: {
+			name: "Nature",
+			Attribute: Rules.Attributes.Intelligence
+		},
+		Perception: {
+			name: "Perception",
+			Attribute: Rules.Attributes.Wisdom
+		},
+		Performance: {
+			name: "Performance",
+			Attribute: Rules.Attributes.Charisma
+		},
+		Persuasion: {
+			name: "Persuasion",
+			Attribute: Rules.Attributes.Charisma
+		},
+		Religion: {
+			name: "Religion",
+			Attribute: Rules.Attributes.Intelligence
+		},
+		SleightOfHand: {
+			name: "Sleight Of Hand",
+			Attribute: Rules.Attributes.Dexterity
+		},
+		Stealth: {
+			name: "Stealth",
+			Attribute: Rules.Attributes.Dexterity
+		},
+		Survival: {
+			name: "Survival",
+			Attribute: Rules.Attributes.Wisdom
+		}
+	}
+	Rules.Languages = {
+		Common: {
+			name: "Common"
+		},
+		Dwarven: {
+			name: "Dwarven"
+		}
+	}
+}
+
+function CreateRaces() {
+	Rules.Races = {
+		Dwarf: {
+			name: "Dwarf",
+			abilityIncrease: [
+				{
+					Attribute: Rules.Attributes.Constitution,
+					Increase: 2
+				}
+			],
+			youngUntil: 50,
+			averageMaxAge: 350,
+			size: Rules.Sizes.Medium,
+			minHeight: 1.3,
+			maxHeight: 1.6,
+			averageWeight: 68,
+			speed: 7.5,
+			heavyArmorSpeed: 7.5,
+			darkvision: 20,
+			colorDarkvision: false,
+			specials: {
+				dwarvenResilience: {
+					name: "Dwarven Resilience",
+					savingAgainstAdvantage: {
+						all: [
+							Rules.DamageTypes.Poison
+						]
+					},
+					damageResistance: {
+						all: [
+							Rules.DamageTypes.Poison
+						]
+					}
+				},
+				dwarvenCombatTraining: {
+					name: "Dwarven Combat Training",
+					proficencies: {
+						weapon: {
+							all: [
+								Rules.Items.Battleaxe,
+								Rules.Items.Handaxe,
+								Rules.Items.ThrowingHammer,
+								Rules.Items.Warhammer
+							]
+						}
+					}
+				},
+				toolProficiency: {
+					name: "Tool Proficiency",
+					proficencies: {
+						tools: {
+							choice: {
+								number: 1,
+								options: [
+									Rules.Items.SmithsTools,
+									Rules.Items.BrewersSupplies,
+									Rules.Items.MasonsTools
+								]
+							}
+						}
+					}
+				},
+				Stonecunning: {
+					name: "Stonecunning",
+					proficencies: {
+						checks: {
+							special: {
+								check: Rules.Checks.History,
+								proficiencyBonusMultiplier: 2,
+								description: "Proficient + Double Proficiency Bonus on Intellect (History) checks related to the origin of stonework"
+							}
+						}
+					}
+				}
+			},
+			languages: {
+				all: [
+					Rules.Languages.Common,
+					Rules.Languages.Dwarven
+				]
+			}
+		},
+		Elf: {
+			name: "Elf"
+		},
+		Halfling: {
+			name: "Halfling"
+		},
+		Human: {
+			name: "Human"
+		},
+		Dragonborn: {
+			name: "Dragonborn"
+		},
+		Gnome: {
+			name: "Gnome"
+		}, 
+		HalfElf: {
+			name: "Half-Elf"
+		},
+		HalfOrc: {
+			name: "Half-Orc"
+		},
+		Tiefling: {
+			name: "Tiefling"
+		}
+	};
+	Object.keys(Rules.Races).forEach(function (element, index) {
+		var Race = Rules.Races[element];
+		Race.selected = function(containerID) {
+			Character.Race = Race;
+			Character.SubRace = null;
+			var fieldSet = document.getElementById("SubRace");
+			if (fieldSet != null)
+		    	fieldSet.parentNode.removeChild(fieldSet);
+			if (Race.SubRaces != null)  {
+				var container = document.getElementById(containerID);
+				fieldSet  = document.createElement("fieldset");
+				fieldSet.setAttribute('id',"SubRace");
+				var legend  = document.createElement("legend");
+				legend.textContent = "Subrace";
+				fieldSet.appendChild(legend);
+				container.appendChild(fieldSet);
+				createRadioGroup(Race.SubRaces, "SubRace", "SubRace");
+			}
+		};
+	});
+}
+
+function CreateSubRaces() {
+	Rules.SubRaces = {
+		HillDwarf: {
+			name: "Hill Dwarf",
+			race: Rules.Races.Dwarf
+		},
+		MountainDwarf: {
+			name: "Mountain Dwarf",
+			race: Rules.Races.Dwarf
+		},
+		HighElf: {
+			name: "High Elf",
+			race: Rules.Races.Elf
+		},
+		WoodElf: {
+			name: "Wood Elf",
+			race: Rules.Races.Elf
+		},
+		Drow: {
+			name: "Drow",
+			race: Rules.Races.Elf
+		},
+		Human: {
+			name: "Human",
+			race: Rules.Races.Human
+		},
+		Variant: {
+			name: "Variant Human",
+			race: Rules.Races.Human
+		},
+		Black: {
+			name: "Black",
+			race: Rules.Races.Dragonborn
+		},
+		Blue: {
+			name: "Blue",
+			race: Rules.Races.Dragonborn
+		},
+		Brass: {
+			name: "Brass",
+			race: Rules.Races.Dragonborn
+		},
+		Bronze: {
+			name: "Bronze",
+			race: Rules.Races.Dragonborn
+		},
+		Copper: {
+			name: "Copper",
+			race: Rules.Races.Dragonborn
+		},
+		Gold: {
+			name: "Gold",
+			race: Rules.Races.Dragonborn
+		},
+		Green: {
+			name: "Green",
+			race: Rules.Races.Dragonborn
+		},
+		Red: {
+			name: "Red",
+			race: Rules.Races.Dragonborn
+		},
+		Silver: {
+			name: "Silver",
+			race: Rules.Races.Dragonborn
+		},
+		White: {
+			name: "White",
+			race: Rules.Races.Dragonborn
+		},
+		ForestGnome: {
+			name: "Forest Gnome",
+			race: Rules.Races.Gnome
+		},
+		RockGnome: {
+			name: "Rock Gnome",
+			race: Rules.Races.Gnome
+		}
+	};
+	Object.keys(Rules.SubRaces).forEach(function (element, index) {
+		var SubRace = Rules.SubRaces[element];
+		if (SubRace.race.SubRaces == null) {
+			SubRace.race.SubRaces = {};
+		}
+		SubRace.race.SubRaces[element] = SubRace;
+		SubRace.selected = function(containerID) {
+			Character.SubRace = SubRace;
+		};
+	});
+}
+
+function CreateClasses() {
+	Rules.Classes = {
+		Barbarian: {
+			name: "Barbarian"
+		},
+		Bard: {
+			name: "Bard"
+		},
+		Cleric: {
+			name: "Cleric"
+		},
+		Druid: {
+			name: "Druid"
+		},
+		Fighter: {
+			name: "Fighter"
+		},
+		Monk: {
+			name: "Monk"
+		},
+		Paladin: {
+			name: "Paladin"
+		},
+		Ranger: {
+			name: "Ranger"
+		},
+		Rogue: {
+			name: "Rogue"
+		},
+		Sorcerer: {
+			name: "Sorcerer"
+		},
+		Warlock: {
+			name: "Warlock"
+		},
+		Wizard: {
+			name: "Wizard"
+		}
+	};
+	Object.keys(Rules.Classes).forEach(function (element, index) {
+		var Class = Rules.Classes[element];
+		Class.selected = function(containerID) {
+			Character.Class = Class;
+			Character.Archetype = null;
+			var fieldSet = document.getElementById("Archetypes");
+			if (fieldSet != null)
+		    	fieldSet.parentNode.removeChild(fieldSet);
+			if (Class.Archetypes != null)  {
+				var container = document.getElementById(containerID);
+				fieldSet  = document.createElement("fieldset");
+				fieldSet.setAttribute('id',"Archetypes");
+				var legend  = document.createElement("legend");
+				legend.textContent = "Archetype";
+				fieldSet.appendChild(legend);
+				container.appendChild(fieldSet);
+				createRadioGroup(Class.Archetypes, "Archetypes", "Archetypes");
+			}
+		};
+	});
+}
+
+function CreateSubClasses() {
+	Rules.Archetypes = {
+		Berserker: {
+			name: "Berserker",
+			class: Rules.Classes.Barbarian
+		},
+		Totem: {
+			name: "Totem",
+			class: Rules.Classes.Barbarian
+		},
+		Lore: {
+			name: "Lore",
+			class: Rules.Classes.Bard
+		},
+		Valor: {
+			name: "Valor",
+			class: Rules.Classes.Bard
+		},
+		Knowledge: {
+			name: "Knowledge",
+			class: Rules.Classes.Cleric
+		},
+		Life: {
+			name: "Life",
+			class: Rules.Classes.Cleric
+		},
+		Light: {
+			name: "Light",
+			class: Rules.Classes.Cleric
+		},
+		Nature: {
+			name: "Nature",
+			class: Rules.Classes.Cleric
+		},
+		Tempest: {
+			name: "Tempest",
+			class: Rules.Classes.Cleric
+		},
+		Trickery: {
+			name: "Trickery",
+			class: Rules.Classes.Cleric
+		},
+		War: {
+			name: "War",
+			class: Rules.Classes.Cleric
+		},
+		Land: {
+			name: "Land",
+			class: Rules.Classes.Druid
+		},
+		Moon: {
+			name: "Moon",
+			class: Rules.Classes.Druid
+		},
+		Champion: {
+			name: "Champion",
+			class: Rules.Classes.Fighter
+		},
+		BattleMaster: {
+			name: "Battle Master",
+			class: Rules.Classes.Fighter
+		},
+		ElderitchKnight: {
+			name: "Elderitch Knight",
+			class: Rules.Classes.Fighter
+		},
+		OpenHand: {
+			name: "Open Hand",
+			class: Rules.Classes.Monk
+		},
+		Shadow: {
+			name: "Shadow",
+			class: Rules.Classes.Monk
+		},
+		FourElements: {
+			name: "Four Elements",
+			class: Rules.Classes.Monk
+		},
+		Devotion: {
+			name: "Devotion",
+			class: Rules.Classes.Paladin
+		},
+		Ancients: {
+			name: "Ancients",
+			class: Rules.Classes.Paladin
+		},
+		Venegance: {
+			name: "Venegance",
+			class: Rules.Classes.Paladin
+		},
+		Hunter: {
+			name: "Hunter",
+			class: Rules.Classes.Ranger
+		},
+		BeastMaster: {
+			name: "Beast Master",
+			class: Rules.Classes.Ranger
+		},
+		Thief: {
+			name: "Thief",
+			class: Rules.Classes.Rogue
+		},
+		Assassin: {
+			name: "Assassin",
+			class: Rules.Classes.Rogue
+		},
+		DraconicBloodline: {
+			name: "Draconic Bloodline",
+			class: Rules.Classes.Sorcerer
+		},
+		WildMagic: {
+			name: "Wild Magic",
+			class: Rules.Classes.Sorcerer
+		},
+		Archfey: {
+			name: "Archfey",
+			class: Rules.Classes.Warlock
+		},
+		Fiend: {
+			name: "Fiend",
+			class: Rules.Classes.Warlock
+		},
+		GreatOldOne: {
+			name: "Great Old One",
+			class: Rules.Classes.Warlock
+		},
+		Abjuration: {
+			name: "Abjuration",
+			class: Rules.Classes.Wizard
+		},
+		Conjuration: {
+			name: "Conjuration",
+			class: Rules.Classes.Wizard
+		},
+		Divination: {
+			name: "Divination",
+			class: Rules.Classes.Wizard
+		},
+		Enchantment: {
+			name: "Enchantment",
+			class: Rules.Classes.Wizard
+		},
+		Evocation: {
+			name: "Evocation",
+			class: Rules.Classes.Wizard
+		},
+		Illusion: {
+			name: "Illusion",
+			class: Rules.Classes.Wizard
+		},
+		Necromancy: {
+			name: "Necromancy",
+			class: Rules.Classes.Wizard
+		},
+		Transmutation: {
+			name: "Transmutation",
+			class: Rules.Classes.Wizard
+		}
+	}
+
+	Object.keys(Rules.Archetypes).forEach(function (element, index) {
+		var Archetype = Rules.Archetypes[element];
+		if (Archetype.class.Archetypes == null) {
+			Archetype.class.Archetypes = {};
+		}
+		Archetype.class.Archetypes[element] = Archetype;
+		Archetype.selected = function(containerID) {
+			Character.Archetype = Archetype;
+		};
+	});
+}
+
+
+function CreateAlignments() {
+	Rules.Alignments = {
+		LawfulGood: {
+			name: "Lawful Good",
+			morale: 1,
+			strictness: 1,
+			short: "LG"
+		},
+		NeutralGood: {
+			name: "Neutral Good",
+			morale: 1,
+			strictness: 0,
+			short: "NG"
+		},
+		ChaoticGood: {
+			name: "Chaotic Good",
+			morale: 1,
+			strictness: -1,
+			short: "CG"
+		},
+		LawfulNeutral: {
+			name: "Lawful Neutral",
+			morale: 0,
+			strictness: 1,
+			short: "LN"
+		},
+		TrueNeutral: {
+			name: "True Neutral",
+			morale: 0,
+			strictness: 0,
+			short: "TN"
+		},
+		ChaoticNeutral: {
+			name: "Chaotic Neutral",
+			morale: 0,
+			strictness: -1,
+			short: "CN"
+		},
+		LawfulEvil: {
+			name: "Lawful Evil",
+			morale: -1,
+			strictness: 1,
+			short: "LE"
+		},
+		NeutralEvil: {
+			name: "Neutral Evil",
+			morale: -1,
+			strictness: 0,
+			short: "NE"
+		},
+		ChaoticEvil: {
+			name: "Chaotic Evil",
+			morale: -1,
+			strictness: -1,
+			short: "CE"
+		}
+	}
+
+	Object.keys(Rules.Alignments).forEach(function (element, index) {
+		var Alignment = Rules.Alignments[element];
+		Alignment.selected = function(containerID) {
+			Character.Alignment = Alignment;
+		};
+	});
+}
+
+CreateTraits();
+CreateRaces();
+CreateSubRaces();
+CreateClasses();
+CreateSubClasses();
+CreateAlignments();
+
+
+var Character = {
+	Name: null,
+	Player: null,
+	Level: null,
+	XP: null,
+	Race: null,
+	SubRace: null,
+	Class: null,
+	Archetype: null,
+	Alignment: null,
+	Age: null,
+	Height: null,
+	Weight: null,
+	Strength: {},
+	Dexterity: {},
+	Constitution: {},
+	Intelligence: {},
+	Wisdom: {},
+	Charisma: {}
+};
+
+</script>
+
+<script>
+function createRadioElement(name) {
+    var radioHtml = '<input type="radio" id="' + name + '" name="' + name + '" />';
+    var radioFragment = document.createElement('div');
+    radioFragment.innerHTML = radioHtml;
+
+    return radioFragment.firstChild;
+}
+
+function clickedOn(input, elements, element, containerID) {
+	var current = elements[element];
+	console.log(current);
+	current.selected(containerID);
+}
+
+function createRadioGroup(elements, containerID, name) {
+	var container = document.getElementById(containerID);
+	Object.keys(elements).forEach(function (element, index) {
+		var current = elements[element];
+		var label = document.createElement("label");
+		label.textContent = current.name;
+		var radioButton = document.createElement("input");
+		radioButton.setAttribute('type',"radio");
+		radioButton.setAttribute('name', name);
+		radioButton.setAttribute('value',element);
+		radioButton.onclick = function() {clickedOn(radioButton, elements, element, containerID);};
+		label.appendChild(radioButton);
+		container.appendChild(label);
+	});
+}
+
+function assignAttribute(inputID, Attribute) {
+	var input = document.getElementById(inputID);
+	input.setAttribute('onblur',"Character."+Attribute.name+".rolled=this.value;");
+	Character[Attribute.name].rolled=input.value;
+}
+
+function createAttributesInputs(containerID, Attributes) {
+	var container = document.getElementById(containerID);
+	var numAttributes = Object.keys(Attributes).length;
+	for (var i=0; i<numAttributes; i++) {
+		var subContainer = document.createElement("div");
+		var number = document.createElement("input");
+		number.setAttribute('type',"number");
+		number.setAttribute('name', "attribute"+i);
+		number.setAttribute('id', "attribute"+i);
+		number.setAttribute('value',0);
+		number.setAttribute('step',1);
+		subContainer.appendChild(number);
+
+		var roller = document.createElement("input");
+		roller.setAttribute('type',"button");
+		roller.setAttribute('value',"Roll 4d6d1");
+		roller.setAttribute('onclick',"roll('attribute"+i+"',6,4,1);");
+		subContainer.appendChild(roller);
+
+		Object.keys(Attributes).forEach(function (element, index) {
+			var Attribute = Attributes[element];
+			var label = document.createElement("label");
+			label.setAttribute('style',"display: inline-block;");
+			label.textContent = Attribute.shorthand;
+
+			var radioButton = document.createElement("input");
+			radioButton.setAttribute('type',"radio");
+			radioButton.setAttribute('name', "attribute"+i+"Selection");
+			radioButton.setAttribute('value',element);
+			var id= "attribute"+i;
+			var att= Attribute;
+			radioButton.onclick = function() {assignAttribute(id, att);};
+			label.appendChild(radioButton);
+			subContainer.appendChild(label);
+		});
+		container.appendChild(subContainer);
+
+	}
+}
+
+</script>
+
+<figure style="width: 640px; margin-left: auto; margin-right: auto;">
+	<form id="ClassChoiceWizard" >
+		<fieldset id="general">
+			<legend>General</legend>
+			<label>Name: <input type="text" name="Name" value="" placeholder="Character Name" onblur="Character.Name=this.value;" /></label>
+			<label>Player: <input type="text" name="Player" value="" placeholder="Player Name" onblur="Character.Player=this.value;"  /></label>
+			<label>Level: <input type="number" name="Level" value="1" min="1" max="20" step="1" onblur="Character.Level=this.value;"  /></label>
+			<label>XP: <input type="number" name="XP" value="0" min="1" max="500000" step="1" onblur="Character.XP=this.value;"  /></label>
+		</fieldset>
+		<fieldset id="race">
+			<legend>Race</legend>
+			<div id="RacePlaceholder">
+			</div>
+			<script>
+				createRadioGroup(Rules.Races, "RacePlaceholder", "Race");
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>Class</legend>
+
+			<div id="ClassPlaceholder">
+			</div>
+			<script>
+				createRadioGroup(Rules.Classes, "ClassPlaceholder", "Class");
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>Ability Scores</legend>
+
+			<div id="Attributes">
+			</div>
+
+
+			<script>
+				createAttributesInputs("Attributes", Rules.Attributes);
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>Character</legend>
+			<fieldset>
+				<legend>Alignments</legend>
+				<div id="AlignmentPlaceholder">
+				</div>
+				<script>
+					createRadioGroup(Rules.Alignments, "AlignmentPlaceholder", "Alignment");
+				</script>
+			</fieldset>
+			<fieldset>
+				<legend>Physical Description</legend>
+				<label>Age:<input type="number" name="Age" min="0" max="100" step="1" onblur="Character.Age=this.value;"/></label>
+				<label>Height:<input type="number" name="Height" min="0.4" max="3" step="0.1" onblur="Character.Height=this.value;"/></label>
+				<label>Weight:<input type="number" name="Weight" min="15" max="300" step="0.5" onblur="Character.Weight=this.value;"/></label>
+			</fieldset>
+		</fieldset>
+		<fieldset>
+			<legend>Equipment</legend>
+		</fieldset>
+	</form>
+
+	D'n'D character sheet generator
+</figure>
+
+
+<figure style="width: 640px; margin-left: auto; margin-right: auto;">
+<script>
+function updateCharacterSheet() {
+	setTimeout(updateCharacterSheet, 500);
+
+	Name = document.getElementById("SheetName");
+	if (Name!=null) {
+		Name.textContent = Character.Name;
+	}
+	Player = document.getElementById("SheetPlayer");
+	if (Player!=null) {
+		Player.textContent = Character.Player;
+	}
+	Level = document.getElementById("SheetLevel");
+	if (Level!=null) {
+		Level.textContent = Character.Level;
+	}
+	XP = document.getElementById("SheetXP");
+	if (XP!=null) {
+		XP.textContent = Character.XP;
+	}
+	if (Character.Race != null) {
+		Race = document.getElementById("SheetRace");
+		if (Race!=null) {
+			Race.textContent = Character.Race.name;
+		}
+		Speed = document.getElementById("SheetSpeed");
+		if (Speed!=null) {
+			Speed.textContent = Character.Race.speed;
+		}
+	}
+	if (Character.SubRace != null) {
+		SubRace = document.getElementById("SheetSubRace");
+		if (SubRace!=null) {
+			SubRace.textContent = Character.SubRace.name;
+		}
+	}
+	if (Character.Class != null) {
+		Class = document.getElementById("SheetClass");
+		if (Class!=null) {
+			Class.textContent = Character.Class.name;
+		}
+	}
+	if (Character.Archetype != null) {
+		Archetype = document.getElementById("SheetArchetype");
+		if (Archetype!=null) {
+			Archetype.textContent = Character.Archetype.name;
+		}
+	}
+	if (Character.Alignment != null) {
+		Alignment = document.getElementById("SheetAlignment");
+		if (Alignment!=null) {
+			Alignment.textContent = Character.Alignment.name;
+		}
+	}
+	Age = document.getElementById("SheetAge");
+	if (Age!=null) {
+		Age.textContent = Character.Age;
+	}
+	Height = document.getElementById("SheetHeight");
+	if (Height!=null) {
+		Height.textContent = Character.Height;
+	}
+	Weight = document.getElementById("SheetWeight");
+	if (Weight!=null) {
+		Weight.textContent = Character.Weight;
+	}
+	if (Character.Strength != null) {
+		Strength = document.getElementById("SheetStrength");
+		if (Strength!=null) {
+			Strength.textContent = Character.Strength.rolled;
+		}
+	}
+	if (Character.Dexterity != null) {
+		Dexterity = document.getElementById("SheetDexterity");
+		if (Dexterity!=null) {
+			Dexterity.textContent = Character.Dexterity.rolled;
+		}
+	}
+	if (Character.Constitution != null) {
+		Constitution = document.getElementById("SheetConstitution");
+		if (Constitution!=null) {
+			Constitution.textContent = Character.Constitution.rolled;
+		}
+	}
+	if (Character.Intelligence != null) {
+		Intelligence = document.getElementById("SheetIntelligence");
+		if (Intelligence!=null) {
+			Intelligence.textContent = Character.Intelligence.rolled;
+		}
+	}
+	if (Character.Wisdom != null) {
+		Wisdom = document.getElementById("SheetWisdom");
+		if (Wisdom!=null) {
+			Wisdom.textContent = Character.Wisdom.rolled;
+		}
+	}
+	if (Character.Charisma != null) {
+		Charisma = document.getElementById("SheetCharisma");
+		if (Charisma!=null) {
+			Charisma.textContent = Character.Charisma.rolled;
+		}
+	}
+
+}
+updateCharacterSheet();
+</script>
+	<style>
+		#CharacterSheet {
+			display: block;
+			background-color: #333;
+			color: #aaa;
+			position: relative;
+			padding: 0;
+			margin: 0;
+			width: 1000px;
+			overflow: hidden;
+		}
+		#CharacterSheet > header {
+			display: block;
+			background-color: #555;
+			position: relative;
+			padding: 0;
+			margin: 0;
+			height: 150px;
+			overflow: hidden;
+		}
+
+		#CharacterSheet > header > hgroup {
+			float: left;
+			width: 300px;
+			border-right: 1px solid #aaa;
+			height: 150px;
+			padding: 0;
+			margin: 0;
+		}
+
+		#CharacterSheet > header > figure {
+			display: inline-block;
+			width: 200px;
+			padding: 0;
+			margin: 0;
+		}
+
+		#CharacterSheet > #SheetAttributesSection {
+			float: left;
+			width: 200px;
+		}
+
+		#CharacterSheet > figure {
+			display: inline-block;
+			width: 100px;
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+	<article id="CharacterSheet">
+		<header>
+			<hgroup>
+				<h1 id="SheetName">CHARACTER</h1>
+				<h2>(<span id="SheetPlayer">PLAYER</span>)</h2>
+			</hgroup>
+			
+			<figure>
+				<figcaption>Level</figcaption>
+				<data value="00" id="SheetLevel">00</data>
+			</figure>
+			<figure>
+				<figcaption>Experience</figcaption>
+				<data value="0000" id="SheetXP">0000</data>
+			</figure>
+			<figure>
+				<figcaption>Class</figcaption>
+				<span id="SheetClass">CLASS</span>
+			</figure>
+			<figure>
+				<figcaption>Race</figcaption>
+				<span id="SheetRace">RACE</span> - <span id="SheetSubRace">SUBRACE</span>
+			</figure>
+			<figure>
+				<figcaption>Alignment</figcaption>
+				<span id="SheetAlignment">ALIGNMENT</span>
+			</figure>
+		</header>
+
+		<section id="SheetAttributesSection">
+			<h1>Attributes:</h1>
+			<dl id="SheetAttributes">
+				<dt>Strength</dt>
+				<dd class="value" id="SheetStrength">00</dd>
+				<dd class="modifier" id="SheetStrengthModifier">+0</dd>
+				<dt>Dexterity</dt>
+				<dd class="value" id="SheetDexterity">00</dd>
+				<dd class="modifier" id="SheetDexterityModifier">+0</dd>
+				<dt>Constitution</dt>
+				<dd class="value" id="SheetConstitution">00</dd>
+				<dd class="modifier" id="SheetConstitutionModifier">+0</dd>
+				<dt>Intelligence</dt>
+				<dd class="value" id="SheetIntelligence">00</dd>
+				<dd class="modifier" id="SheetIntelligenceModifier">+0</dd>
+				<dt>Wisdom</dt>
+				<dd class="value" id="SheetWisdom">00</dd>
+				<dd class="modifier" id="SheetWisdomModifier">+0</dd>
+				<dt>Charisma</dt>
+				<dd class="value" id="SheetCharisma">00</dd>
+				<dd class="modifier" id="SheetCharismaModifier">+0</dd>
+			</dl>
+		</section>
+
+		<figure>
+			<figcaption>Armor Class</figcaption>
+			<data value="00" id="SheetAC">00</data>
+		</figure>
+		<figure>
+			<figcaption>Initiative</figcaption>
+			<data value="00" id="SheetInit">00</data>
+		</figure>
+		<figure>
+			<figcaption>Speed</figcaption>
+			<data value="00" id="SheetSpeed">00</data>
+		</figure>
+		<figure>
+			<figcaption>Proficiency Bonus</figcaption>
+			<data value="00" id="SheetProficiencyBonus">00</data>
+		</figure>
+		<figure>
+			<figcaption>Inspiration</figcaption>
+			<data value="00" id="SheetInspiration">00</data>
+		</figure>
+
+	</article>
+	D'n'D character sheet
+</figure>
+
