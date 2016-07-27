@@ -1,6 +1,8 @@
 if (document.enableInstagram)  {
 	$(document).ready(function() {
-		var accessToken = '197139508.8dd0e97.9ccedb18ab1d4e298a69b139e15aaefa';
+		//access stuf here https://www.instagram.com/developer/clients/manage/
+		// get it through https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token
+		var accessToken = '197139508.8f6d6de.099851ce8267472cbf88a3f7ae937d19';
 		if (document.location.hostname == "localhost") {
 			accessToken = '197139508.de7d149.9ae6f841ed2c4ef29df155cc87a91598';
 		}
