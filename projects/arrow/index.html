@@ -1,0 +1,73 @@
+---
+comments: true
+title: ➔
+preview: /assets/images/arrow_entrata.jpg
+---
+
+<p>
+	There are tons of tools to spice up data in informative posts, but this one is mine. It fulfills my needs, which is creating interesting interactive informative posts, visualizing data and toying around with causal chains. And more.
+</p>
+
+<figure style="width: 810px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/arrow_entrata.jpg" style="width: 810px"  alt="➔ Entrata Entrance"/>
+	<figcaption>A picture I shot of a very informative sign, pointing towards the entrance of the train station in Ponte Gardena/Waidbruck</figcaption>
+</figure>
+
+<p>
+	Facts often rely on data, and data can be arid. If you want to present facts in an interesting and engaging way, you have to present the data in an understandable and non-boring way. Interaction, visualization and de-abstraction (concretize is a horrible word) can help a lot in written communication - we have the technical possibility to have non-static documents, we should take advantage of that. <br />
+	Of course having a tool to achieve such reactive documents (I'm using <a href="http://worrydream.com/#!/ExplorableExplanations">Bret Victor's</a> neologism, as I think it's very fitting; as well as "active reading" and "explorable examples", great concepts. Generally, Bret Victor brilliantly created all this field, and explained it more eloquently than I ever could.) is very helpful, as not everyone has time and skills to write JavaScript into their texts to achieve these effects - nor should everyone have time or skills to do that. There are already some great tools for these goals (Bret Victor's own <a href="http://worrydream.com/#!/Tangle">tangle</a> is a great example), but I decided that I'd like my own tool, tailored to my needs and constantly expanding and extending. I have a series of topics in mind I'd like to write about, and ➔ should be able to handle those documents (at least as a starting point, let's see where I'll expand it afterwards)
+</p>
+
+<script>
+	var arrow = {
+		rawScripts: [],
+		vars: [],
+		init: function(){
+			for (element of document.querySelectorAll ('script[type="text/➔"]')) {
+				if (!arrow.vars[element.getAttribute("data-var")])
+				{
+					arrow.vars[element.getAttribute("data-var")] = {
+						name: element.getAttribute("data-var"),
+						rawScripts: [],
+						value: element.textContent,
+						numeric: !isNaN(element.textContent),
+						number: parseInt(element.textContent),
+						render: function() {
+							for (e in this.rawScripts) {
+								e.render();
+							}
+						}
+					};
+				}
+
+				var contentNode = document.createElement("span");
+				element.insertBefore(contentNode, element);
+				var rawsCriptObject = {
+					script: element,
+					variable: arrow.vars[element.getAttribute("data-var")],
+					defaultText: element.textContent,
+					rendered: contentNode,
+					render: function() {
+						console.log(this.variable.value);
+						this.rendered.textContent = this.variable.value;
+					}
+				}
+				arrow.rawScripts.push(rawsCriptObject);
+				arrow.vars[element.getAttribute("data-var")].rawScripts.push(rawsCriptObject);
+				rawsCriptObject.render();
+			}
+		}
+	} 
+
+	window.addEventListener('load', arrow.init, false );
+</script>
+
+<article>
+	<h1>The simplest case</h1>
+	<p>
+		The simplest example is retrieving or displaying a variable - for example a number or a text.
+	</p>
+	<p class="example">
+		<script type="text/➔" data-var="name1">Peter</script> has <script type="text/➔" data-var="numSiblings">5</script> siblings, one of them is <script type="text/➔" data-var="name2">Paul</script>. <script type="text/➔" data-var="name2">Paul</script> has <script type="text/➔" data-var="numSiblings">5</script> siblings, one of them is <script type="text/➔" data-var="name1">Peter</script>.
+	</p>
+</article>
