@@ -1,0 +1,98 @@
+---
+title: Worldbuilder
+permalink: 2017/01/05/worldbuilder
+categories: 
+  - a thing a day
+  - software
+  - plan
+tags:
+  - worldbuilding
+comments: true
+preview: /assets/images/worldbuilding-inkarnate.jpg
+---
+
+<p>In the last few months I could engage in my favorite activity pretty often: worldbuilding. The more I do it, the more I'm convinced that there's something missing I would love: a good worldbuilding software.</p>
+
+<figure style="width: 512px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/hitchhikers_worldbuilder.jpg" style="width: 512px;"  alt="World factory in the Hitchhikers Guide to the Galaxy"/>
+	<figcaption>A planet factory on Magrathea, from the movie adaptation of the Hitchhikers Guide to the Galaxy</figcaption>
+</figure>
+
+<p>Be it for roleplaying campaigns, for games I'm developing, for short stories or artwork, I keep creating worlds. To be honest, those are all excuses, because that's what I really love doing: worldbuilding. Creating maps, lore, backstory, climates, political systems, trade routes, characters, creatures, technology, magic, planes of existence, pantheons, ... the whole shebang. Sometimes, just for fun, I create villages, characters, life stories, mythologies, anything... in my spare time. Worldbuildign is really the must fun thing I can imagine: be it fantasy universes, sci-fi systems, dystopian cyberpunk megacities, alt-historic empires, whatever, the possibilities are just incredible.</p>
+
+<figure style="width: 500px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-gimp.png" style="width: 500px;"  alt="Border Map"/>
+	<figcaption>A map of an area where three nations border on each other I created with <a href="https://www.gimp.org/">GIMP</a></figcaption>
+</figure>
+
+<p>I could spend hours just talking about how fun worldbuilding is and why it's so much fun and how I proceed - and I will - but today I wanted to talk about a problem I keep encountering. I'm talking about the tools we have at our disposal to do some worldbuilding. Especially since we have so many different different pieces of information we have to keep track of - of course we have maps, the most visual of information, but there's so much more: timeliness, descriptions, characters, family trees, various notes, descriptions, "snapshots", tables, etc. There are a few tools which help with worldbuilding, some of the ones I enjoy most are wikis, simple text documents, spreadsheets, diagram editors, image editors and 3d modeling tools. I also experimented with various other programs, but I was never really happy with them.</p>
+
+<figure style="width: 400px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-mangastudio.jpg" style="width: 400px;"  alt="Sketch for world map"/>
+	<figcaption>A sketch for a world map I created with <a href="http://www.wacom.eu/index4.asp?pid=9240&spid=10/">Manga Studio</a></figcaption>
+</figure>
+
+<p>I tested various software solutions, starting form open source general software solutions like <a href="https://www.gimp.org/">GIMP</a> and even trying full-fledged professional cartography tools like <a href="http://www.esri.com/arcgis/products/arcgis-pro/Overview">ArcGIS Pro</a>, I used general-purpose wikis like <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a> or created custom <a href="http://rubyonrails.org/">Ruby on Rails</a> mini-applications, I used Openoffice Calc</a> and <a href="https://www.google.com/sheets/about/">Google Sheets</a>, I experimented with the now defunct Google Wave, awesome experimental web tools like <a href="http://inkarnate.com/">Inkarnate</a>, or writing <a href="http://www.opengeospatial.org/standards/gml">weird markup in obscure XML languages</a> from scratch. There are certain tools which work better, soem work less well, but overall there was nothing comprehensive. I'm not talking of only worldbuilding for roleplaying games or something similar, but generally: there's nothing for authors to keep track of their storylines, for artists to make notes about commonalities between their concept art, for fans to follow along with their franchises, or any other person interested in worldbuilding. I understand that there's no complete software package for everything, but I couldn't even find anything to cover the worldbuilding needs partially. There are tons of useful resources, but I would love a place to have a single project, including maps, moodboards, notes, timelines, climate, characters, storylines, relationships, ... to keep track of everything.</p>
+
+<figure style="width: 400px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-tiler.png" style="width: 400px;"  alt="Building details"/>
+	<figcaption>A detail of a single building I created with <a href="http://www.mapeditor.org/">Tiled</a></figcaption>
+</figure>
+
+<p>At first I thought I was just bad at searching, and read through tons of worldbuilding forums, subreddits and similar places. I found a few nice tools for specific tasks, but nothing really comprehensive, no tool really created for worldbuilding. Then I started asking around: maybe it was one of those cases where everybody knows the right tool so nobody writes about it because it's so obvious. Or maybe it's such an odd request that there is simply no need for something similar. As it turns out, nobody knew of any tool which might help me, and a surprising lot of people claimed they'd need something similar to. So it dawned on me: i could create something myself. I mean, "software engineer" would imply that I should be capable of, right? But on the other hand, if nobody did it until now, there must be a reason. Maybe I'm overlooking some irreducible complexity? Maybe I'm missing some important detail? It wouldn't be the first time I underestimate a project...</p>
+
+<figure style="width: 622px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-sheets.png" style="width: 622px;"  alt="Character notes"/>
+	<figcaption>Some notes I took with  <a href="https://www.google.com/sheets/about/">Google Sheets</a></figcaption>
+</figure>
+
+<p>After I decided it would possibly be a good idea to create some software myself, I started thinking about it. What features are useful? What is necessary? What is unnecessary? What's unneeded garbage? I started compiling mental lists of features, of requirements, of constraints. Feature creep has always been my mortal enemy, and this time it's not different: in my mind I added so many features it already felt bloated. OS I decided to start with another approach: what's the best platform for such a project? Phone App? Tablet App? Extension to some existing framework= Desktop software? Web Tool? Everyone of these has it's advantages and disadvantages, but in the End I narrowed it down to a binary choice: A web tool or an extension to <a href="https://unity3d.com/">Unity3D</a>. I'm still thinking about how to combine the two, but it's not an easy task. The problem is that they are completely different approaches to the a solution, but combined it would allow for ideal workflow.</p>
+
+<figure style="width: 500px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-gimp2.png" style="width: 500px;"  alt="Coastline"/>
+	<figcaption>A map of some arctic coastline I created with <a href="https://www.gimp.org/">GIMP</a></figcaption>
+</figure>
+
+<p>I spent a long time thinking about how to integrate the two. One of the main issues in my mind was that for a unity extension to work you have to have a unity project, which would mean a local folder with all the unity overhead. For the web app you'd need a project in a web app, so probably just entries in some database. Since I hate redundancy where unneeded and having bloated folders, after a while I tentatively decided to go with a web project. What would the Unity part have contributed? Well, apart from cross-platform desktop editing, the main point would have been the various editors. The Scene view / Scene Editor would have been ideal for Map drawing - both global and more local. Thanks to the included both 3d and 2d capabilities It would have been no problem dealing with different kind of planet shapes and topologies, it would have allowed for nice landscape modeling including caves, indoor modeling (also multi-story editing), lighting calculations and rendering, and the physics engine would have allowed for realistic water and so on. The same goes for graphics presentation: particle effects, different camera filters, and so on would have allowed for great customization.</p>
+
+<figure style="width: 760px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-dia.png" style="width: 760px;"  alt="Pantheon diagram"/>
+	<figcaption>Diagram of part of a pantheon created with <a href="http://dia-installer.de/">DIA</a></figcaption>
+</figure>
+
+<p>Another useful feature of unity would have been the node editor: creating character relationships, timelines for stories, science trees, military hierarchies... basically everything that can be represented by a diagram would have benefited form the node editor. The possibility to have nodes as components on items in the "world" (scene view) would be amazing, and allow for quick adjustments and fast lookup of information. Other editors would have had some very useful application too: calendars, time selection, climate area mixing, alignments, ... the possibilities would have been virtually endless. Additionally unity would have had one incredibly useful feature: the asset store. Imagine being able to just import assets, like some tree creator, and use them to create realistic vistas and maps of your world. Imagine having extension to the worldbuilding software allowing for all weirdness or additional flexibility available through a well-established distribution channel. It would really have been something. So why not use Unity?</p>
+
+<figure style="width: 564px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-blender.png" style="width: 564px;"  alt="Coastline"/>
+	<figcaption>A schematic for a ship drawn with <a href="https://www.blender.org/">BLENDER</a></figcaption>
+</figure>
+
+<p>While Unity would have provided lots of help for the point-and-click and visual parts of the software, it would have been a really sub-optimal for all the data entry and management parts of the software, I'd have had to create everything nearly from scratch. Especially long-form text and linked tabular data is really not Unity's strong suit. And besides that, Unity would require a local folder with overhead, and be a mess to synchronize across multiple devices, especially in a multi-user environment. Also searching through the world, fast search &amp; replace, custom text styling and so on would have been quite a hassle to implement. But most notably the multi-platformness of the software would have been an issue: there are Editors only for Windows, MacOS and Linux, but nothing for mobile, for tablets or for any other kind of device. Also there would be no way to nicely present the data, to have great printable resources (except maybe as generated pdf's), or to manage sources and inspiration (mixing it up with the assets would have been... messy at best)</p>
+
+<figure style="width: 504px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-book1.jpg" style="width: 504px;"  alt="antique book about travel in Northern Italy"/>
+	<figcaption>Old travel advisor books (in this case "Oberitalien mit Ravenna, Florenz und Livorno", 1911, by Karl Baedeker) are great sources for inspiration when worldbuilding</figcaption>
+</figure>
+
+<p>Having a web tools would allow for excellent organization of information: tagging and categorizing information, attaching dates and geographic locations, links from one information to another, full-text search, filtering and tabular display, visual customization of text, inclusion of images, videos and audio files, links to external resources, a web tool provides flexibility not matchable by other systems (at least not easily). From a few improvised notes to define the cornerstones of the world to accurately researched lists of source books, moodboards and concept art, having a flexible web system would allow every work style. No matter if one wants to start with lore, with geology, with a legend or a single storyline, the tool would allow freedom of expression when creating the world. Even more so, it would allow for multi-user editing, or even just viewing of parts of the world- possibly even have a public website for the world visitable by interested parties (players, readers, watchers, ... whatever might be the case). Printable resources would be trivial to implement, and search &amp; replace would be incredibly easy and quick.</p>
+
+<figure style="width: 512px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-inkarnate.jpg" style="width: 512px;"  alt="old-style kingdom map"/>
+	<figcaption>A map of a kingdom I drew with (the honestly pretty awesome) <a href="http://inkarnate.com/">Inkarnate</a></figcaption>
+</figure>
+
+<p>"But what about the parts unity would have been great at?"<br />Clearly if I want to achieve my goal of having a full-fledged software, I'd have to provide some replacement for the parts Unity would have taken care of. Not all would be implementable in a straightforwards fashion, but Canvas elements and WebGL would allow for very interesting possibilities. Especially if the planets are restricted to simpler shapes (Sphere, Cube, Cylinder, Pyramid, Donut, ...) it shouldn't really be an issue to create a map making tool, on the contrary: Possibly it would even allow for a more intuitive interface. Node networks could be achieved either with html elements or as parts of a canvas element, and timelines as simple scrollbars. the only two things not replaceable (at least not as far as I think right now) are the asset store and the rendering of maps and vistas. My ides for solutions for these problems are still in early stages, but include allowing to export maps and vistas as some stylable file (my thoughts would be a svg file with proper element classes and tags, so a centralized CSS file would allow for multiple maps/pictures to still have the same style), or as various layers with transparency (so one could import them in Photoshop or GIMP or anything), or something similar.</p>
+
+<figure style="width: 627px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-gimp3.png" style="width: 627px;"  alt="antique lookign map of an empire"/>
+	<figcaption>A map of an Empire I drew (and then aged) with <a href="https://www.gimp.org/">GIMP</a></figcaption>
+</figure>
+
+<p>Creating such a tool would require various parts: a databasae, a backend and a frontednd. The latter one would be coded in html+css and - of course - a heavy dose of JavaScript (although not too much), with (as mentioned above) possible exports as svg or similar. For the database... I'm undecided between a document-oriented storage (<a href="https://www.mongodb.com/">MongoDB</a>, I'm looking at you), or a good old relatioanl database (probably a <a href="https://www.postgresql.org/">PostgreSQL</a>). Both have their advantages and disadvantages, and I'm pretty much divided between the two. I'm also considering having a key-value storage such as <a gref="https://redis.io/">Redis</a> in addition to the proper database to speed up certain actions. And as far as the backend goes: clearly ruby on rails. It might not be the most hip solution, but for such an application it should be exactly the right tool for the job. The only downside to rails is finding a proper hosting, I thought of maybe going with a <a href="https://www.linode.com/">Linode</a> or - for simplicity's sake - a <a href="https://www.heroku.com/">Heroku</a>, but.. hosting is still a very much open question.</p>
+
+<figure style="width: 756px; margin-left: auto; margin-right: auto;">
+	<img src="{{ site.url }}/assets/images/worldbuilding-book2.jpg" style="width: 756px;"  alt="Book about lost maps"/>
+	<figcaption>Another great source of inspiration are books about fictional maps, for example here we have a National Geographic Atlas of fantasy maps</figcaption>
+</figure>
+
+<p>I could talk more about my dream worldbuilding software, but there's the most important question I still haven't answered: did I build it?<br />That's a very legitimate question, and the last paragraphs might seem to imply it, but with great sadness I have to say that no, I haven't started actually implementing it - yet. I plan to do it soon though, as the more time I let pass the more content I have to somehow transfer to the new system when it's ready. The usefulness of such a tool is out of question, and I'm fairly confident I might be able to create it in a reasonable amount of time. I just have the few open questions to think about, and as soon as I found a solution I will start working on a first implementation.<br />Oh, and the most difficult question is still unanswered: what will the tools be named? Ugh, naming things is so hard...</p>
