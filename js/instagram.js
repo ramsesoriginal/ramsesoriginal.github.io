@@ -2,9 +2,9 @@ if (document.enableInstagram)  {
 	$(document).ready(function() {
 		//access stuf here https://www.instagram.com/developer/clients/manage/
 		// get it through https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token
-		var accessToken = '197139508.8f6d6de.099851ce8267472cbf88a3f7ae937d19';
+		var accessToken = '197139508.8f6d6de.0ef0152969fe44b79ea2511b2db695b5';
 		if (document.location.hostname == "localhost") {
-			accessToken = '197139508.de7d149.9ae6f841ed2c4ef29df155cc87a91598';
+			accessToken = '197139508.de7d149.8f983cc103534c20a1fc1a8156c35373';
 		}
 		var userID = 197139508;
 		$.getJSON( 'https://api.instagram.com/v1/users/' + userID + '/media/recent?access_token=' +  accessToken + '&count=1&callback=?', function( data ) {

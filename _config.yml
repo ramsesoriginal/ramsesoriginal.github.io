@@ -2,6 +2,7 @@ timezone: "Europe/Berlin"
 
 paginate: 5
 
+gems: [jekyll-paginate]
 paginate_path: "blog/:num"
 
 name: ramsesoriginal
