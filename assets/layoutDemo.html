@@ -154,12 +154,30 @@
 			text-align: center;
 		}
 
+		body > nav:focus {
+			outline: none;
+		}
+
 		body > nav h1{
+			display: block;
+		}
+
+		body > nav:focus h1{
 			display: none;
 		}
 
+		body > nav ul {
+			display: none;
+		}
+
+		body > nav:focus ul {
+			display: block;
+		}
+
+
 		body > nav li {
-			display: inline-block;
+			display: block;
+			margin-bottom: 0.5em;
 		}
 
 		body > nav li a {
@@ -173,34 +191,26 @@
 			text-transform: uppercase;
 			vertical-align: middle;
 			letter-spacing: 0;
+			margin-bottom: ;
 		}
 
-		body > nav li a::before,
 		body > nav li a::after {
-			border-top: 1px solid #fefefe;
+			position: absolute;
 			bottom: 0;
+			left: 2em;
+			right: 2em;
+			border-bottom: 1px solid #333;
 			content: " ";
-			display: block;
-			margin: 0 auto;
-			position: relative;
-			transition: all 280ms ease-in-out;
-			width: 0;
 		}
 
-		body > nav li a:hover::after,
-		body > nav li a:hover::before {
-			border-color: #333;
-			transition: width 350ms ease-in-out;
-			width: 100%;
-		}
 
-		body > nav li a::before {
+		body > nav li:last-of-type a::after {
+			position: absolute;
 			bottom: auto;
-			top: 0;
-		}
-
-		body > nav li ~ li a {
-			border-left: 1px solid #333;
+			left: auto;
+			right: auto;
+			border-bottom: 0;
+			content: " ";
 		}
 
 		body > main {
@@ -260,6 +270,57 @@
 		}
 
 		@media only screen and (min-width: 40em)  {
+
+			body > nav ul {
+				display: block;
+			}
+
+			body > nav h1{
+				display: none;
+			}
+
+			body > nav li {
+				display: inline-block;
+				margin-bottom: 0;
+			}
+
+			body > nav li a::after {
+				position: absolute;
+				bottom: auto;
+				left: auto;
+				right: auto;
+				border-bottom: 0;
+				content: " ";
+			}
+
+			body > nav li a::before,
+			body > nav li a::after {
+				border-top: 1px solid #fefefe;
+				bottom: 0;
+				content: " ";
+				display: block;
+				margin: 0 auto;
+				position: relative;
+				transition: all 280ms ease-in-out;
+				width: 0;
+			}
+
+			body > nav li a:hover::after,
+			body > nav li a:hover::before {
+				border-color: #333;
+				transition: width 350ms ease-in-out;
+				width: 100%;
+			}
+
+			body > nav li a::before {
+				bottom: auto;
+				top: 0;
+			}
+
+			body > nav li ~ li a {
+				border-left: 1px solid #333;
+			}
+
 			body > footer {
 				padding: 0;
 				grid-template-areas:
@@ -406,7 +467,7 @@
 				<h2>Lorem ipsum Dolor sit amet, Consectetur!</h2>
 			</hgroup>
 		</header>
-		<nav>
+		<nav tabindex="0">
 			<h1>Navigation</h1>
 			<ul>
 				<li><a href="#">Lorem</a></li>
