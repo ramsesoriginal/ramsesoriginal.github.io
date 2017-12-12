@@ -3,6 +3,7 @@ import sys
 import urllib.request
 import winreg
 import subprocess
+import pip
 
 
 files = ["comaJudgeHandler.py",
@@ -26,6 +27,9 @@ for file in files:
     urllib.request.urlretrieve(base_url + file, libfolder + file)
 print("Downloading " + starter)
 urllib.request.urlretrieve(base_url + starter, localfolder + starter)
+
+print("Installing ssh library")
+pip.main(['install', "paramiko"])
 
 key = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r'Environment', 0, winreg.KEY_READ)
 val = winreg.QueryValueEx(key, "PATH")[0]
