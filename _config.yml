@@ -7,7 +7,7 @@ paginate_path: "blog/:num"
 
 name: ramsesoriginal
 
-rssbaseurl: http://ramsesoriginal.github.io
+rssbaseurl: https://ramsesoriginal.github.io
 
 date_format: "%d. %m. %Y"
 time_format: "%H:%M:%S"
